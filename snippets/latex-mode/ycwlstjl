@@ -1,0 +1,35 @@
+# -*- mode: latex -*-
+# name: ycwlstjl
+# key: ycwlstjl
+# --
+\lstdefinelanguage{Julia}%
+  {keywordsprefix=\\@,
+    morekeywords={
+    exit,whos,edit,load,is,isa,isequal,typeof,tuple,ntuple,uid,hash,
+    finalizer,convert,promote,subtype,typemin,typemax,realmin,realmax,
+    sizeof,eps,promote_type,method_exists,applicable,invoke,dlopen,dlsym,
+    system,error,throw,assert,new,Inf,Nan,pi,im,begin,while,for,in,return,
+    break,continue,macro,quote,let,if,elseif,else,try,catch,end,bitstype,
+    ccall,do,using,module,import,export,importall,baremodule,immutable,
+    local,global,const,Bool,Int,Int8,Int16,Int32,Int64,Uint,Uint8,Uint16,
+    Uint32,Uint64,Float32,Float64,Complex64,Complex128,Any,Nothing,None,
+    function,type,typealias,abstract
+  },
+   sensitive=true,%
+   alsoother={\\\$},%
+   morecomment=[l]\#,%
+   morecomment=[n]{\#=}{=\#},%
+   morestring=[s]{"}{"},%
+   morestring=[m]{'}{'},%
+}[keywords,comments,strings]%
+
+\lstset{%
+    basicstyle       = \ttfamily,
+    keywordstyle     = \bfseries\color{blue},
+    stringstyle      = \color{magenta},
+    commentstyle     = \color{ForestGreen},
+    showstringspaces = false,
+    literate         = {¦Ë}{{$\lambda$}}{1}
+                       {¦Ñ}{{$\rho$}}{1}
+                       {¦È}{{$\theta$}}{1}
+}

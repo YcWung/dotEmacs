@@ -1,0 +1,130 @@
+# -*- mode: latex -*-
+# name: ycwdocnote
+# key: ycwdocnote
+# --
+\documentclass[${1:a5paper,12pt}]{${2:report}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Title %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{${3:Notes of}}
+\author{${4:Yongchao Wang}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{mathabx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{blkarray}
+\usepackage{listings}
+\usepackage{ulem}
+\usepackage{tikz}
+\usetikzlibrary{matrix, calc, arrows, cd, shapes.multipart}
+\usepackage{tcolorbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Layouts %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\geometry{left=${5:1em}, right=${6:$5}, top=${7:1em}, bottom=${8:$7},
+  headsep=0em, footskip=0em}
+\hypersetup{bookmarks=true, bookmarksnumbered=true,
+  colorlinks=true, linkcolor=Plum}
+\geometry{left=1em,right=1em,top=1em,bottom=1em,}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[R]{\thepage}
+\allowdisplaybreaks[2]
+\setlist[description]{labelindent=\parindent}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Theorems %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\theoremstyle{plain}
+\newtheorem{Thm}{Theorem}[chapter]
+\newtheorem{Lem}[Thm]{Lemma}
+\newtheorem{Cor}[Thm]{Corollary}
+\newtheorem{Prop}[Thm]{Proposition}
+\newtheorem*{Thm*}{Theorem}
+\newtheorem*{Lem*}{Lemma}
+\newtheorem*{Cor*}{Corollary}
+\newtheorem*{Prop*}{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{Def}[Thm]{Definition}
+\newtheorem{Ex}{Execise}
+\newtheorem*{Def*}{Definition}
+\newtheorem*{Ex*}{Execise}
+
+\theoremstyle{remark}
+\newtheorem{Exm}[Thm]{\colorwave{Example}}
+\newtheorem{Rmk}[Thm]{\underline{Remark}}
+\newtheorem*{Exm*}{\colorwave{Example}}
+\newtheorem*{Rmk*}{\underline{Remark}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Self-defined %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\QQ{\mathbb{Q}}
+\def\MM{\mathbb{M}}
+\def\CC{\mathbb{C}}
+\def\RR{\mathbb{R}}
+\def\ZZ{\mathbb{Z}}
+\def\KK{\mathbb{K}}
+\def\id{\mathrm{\mathbf{id}}}
+\def\RP{\mathbb{RP}}
+\def\span{\mathrm{\mathbf{span}}}
+\def\norm#1{\Vert #1 \Vert}
+\def\UTN{\mathrm{\mathbf{UTN}}}
+\def\GL{\mathrm{\mathbf{GL}}}
+\def\EE{\mathrm{\mathbf{E}}}
+\def\FF{\mathrm{\mathbf{F}}}
+\def\GG{\mathbb{G}}
+\def\range{\mathrm{\mathbf{range}}}
+\def\DS{\mathbf{\mathcal{D}}}
+\def\AA{\mathbf{\mathcal{A}}}
+\def\St{\mathrm{\mathbf{St}}}
+\def\rank{\mathrm{rank}}
+\def\graph{\mathrm{graph}}
+\def\coker{\mathrm{Coker}}
+\def\vfld{\mathsf{X}}
+\def\dd#1{\frac{\mathrm{d}}{\mathrm{d}#1}}
+\def\corresponds{\longleftrightarrow}
+\def\End{\mathrm{End}}
+\def\Ab{\mathrm{\mathbf{A\!b}}}
+\def\lMod#1{#1\text{-}\mathrm{Mod}}
+\def\rMod#1{\mathrm{Mod}\text{-}#1}
+\def\biMod#1#2{{#1\text{-}\mathrm{Mod}\text{-}#2}}
+\def\Ext{\mathrm{Ext}}
+\def\Tor{\mathrm{Tor}}
+\def\hom{\mathrm{Hom}}
+\def\ker{\mathrm{Ker}}
+\def\coim{\mathrm{Coim}}
+\def\im{\mathrm{Im}}
+\def\Ccat{\mathcal{C}}
+\def\Set{\mathcal{S}\mathrm{et}}
+\def\nn#1{{\bf #1}}
+\def\nsym#1{\mathbf{#1}}
+\def\todo#1{{\color{RawSienna}\framebox{\tiny\textsf{TODO}}\ #1}}
+% \def\todo#1{{\color{Plum}\tcbox{\tiny\textsf{TODO}}\ #1}}
+\def\ntopic#1{\dashuline{#1}}
+\def\easy#1{{\color{Green}#1}}
+\def\neasy#1{{\color{Red}#1}}
+\def\note#1{{\color{NavyBlue}\uline{#1}}}
+\def\lentry{{$\blackdiamond$\ }}
+\makeatletter
+\newcommand\colorwave[1][BrickRed]{
+  \bgroup\markoverwith{\lower3.5\p@\hbox{\sixly \textcolor{#1}{\char58}}}\ULon}
+\font\sixly=lasy6
+\makeatother
+\definecolor{lgray}{gray}{0.8}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Text %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+% \maketitle
+% \tableofcontents
+% \input{pre.tex}
+$0
+\end{document}

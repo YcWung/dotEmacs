@@ -1,0 +1,12 @@
+# -*- mode: latex -*-
+# name: ycwlseq6
+# key: ycwlseq6
+# --
+\begin{array}{rll}
+\cdots & \to${2:\tilde{H}}_{${3:q}}($6)
+\x${1:right}arrow{$9}$2_{$3}($7)
+\x$1arrow{$10}$2_{$3}($8) & \\\\
+& \x$1arrow{${11:\partial}}$2_{${4:q-1}}($6)
+\x$1arrow{$9}$2_{$4}($7)
+\x$1arrow{$10}$2_{$4}($8) & \to\cdots \\\\
+\end{array}

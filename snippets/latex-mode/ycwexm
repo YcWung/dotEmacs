@@ -1,0 +1,9 @@
+# -*- mode: latex -*-
+# name: ycwexm
+# key: ycwexm
+# --
+\begin{Exm*}[$1] \rm\leavevmode
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{$2}
+\end{center}$0
+\end{Exm*}

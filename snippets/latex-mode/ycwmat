@@ -1,0 +1,7 @@
+# -*- mode: latex -*-
+# name: ycwmat
+# key: ycwmat
+# --
+\left$1\begin{array}{$3}
+  $0
+\end{array}\right$2

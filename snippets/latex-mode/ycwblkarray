@@ -1,0 +1,9 @@
+# -*- mode: latex -*-
+# name: ycwblkarray
+# key: ycwblkarray
+# --
+\begin{blockarray}{${1:cc}}
+\begin{block}{${2:(c)c}}
+  $0  \\\\
+\end{block}
+\end{blockarray}

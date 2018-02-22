@@ -1,0 +1,14 @@
+# key: ycwlseq9
+# name: ycwlseq9
+# --
+\begin{array}{rll}
+\cdots & \to${2:\tilde{H}}_{${3:q}}($6)
+\x${1:right}arrow{$9}$2_{$3}($7)
+\x$1arrow{$10}$2_{$3}($8) & \\\\
+& \x$1arrow{${11:\partial}}$2_{${4:q-1}}($6)
+\x$1arrow{$9}$2_{$4}($7)
+\x$1arrow{$10}$2_{$4}($8) & \\\\
+& \x$1arrow{$11}$2_{${5:q-2}}($6)
+\x$1arrow{$9}$2_{$5}($7)
+\x$1arrow{$10}$2_{$5}($8) & \to\cdots \\\\
+\end{array}

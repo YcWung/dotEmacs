@@ -1,0 +1,25 @@
+# -*- mode: c++ -*-
+# name: kfmainfile
+# key: kfmainfile
+# --
+#include <pcl/io/impl/auto_io.hpp>
+#include <pcl/point_types.h>
+#include <pcl/visualization/pcl_visualizer.h>
+#include <pcl/visualization/point_cloud_color_handlers.h>
+#include <pcl/registration/icp.h>
+#include <iostream>
+#include <kfbase.hpp>
+
+typedef pcl::PointXYZ PointT;
+
+int main(int argc, char** argv){
+using namespace std;
+
+  kfbase::Settings param;
+  int iFrom = stoi (param["iFrom"]), iTo = stoi (param["iTo"]);
+  string iDir = param["iDir"];
+  char fname[16];
+  sprintf(fname, "/frame_%04d.ply",iFrom);
+
+  return 0;
+}

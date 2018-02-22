@@ -1,0 +1,8 @@
+# -*- mode: c++ -*-
+# name: pclload
+# key: pclload
+# --
+pcl::PointCloud<${1:PointT}>::Ptr ${2:pcd}(new pcl::PointCloud<$1>);
+if(pcl::io::load<$1>(${3:param[iDir]+fname}, *$2) == -1){
+  PCL_ERROR("FAILED!\n"); return(-1);
+}

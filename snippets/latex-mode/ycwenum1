@@ -1,0 +1,8 @@
+# -*- mode: latex -*-
+# name: ycwenum1
+# key: ycwenum1
+# --
+\begin{enumerate}
+  \renewcommand{\labelenumi}{${1:{\rm(\roman{enumi})}}}
+\item $0
+\end{enumerate}

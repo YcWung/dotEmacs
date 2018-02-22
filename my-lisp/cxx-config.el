@@ -1,0 +1,35 @@
+;; Use cmake-ide package
+;; (hack-dir-local-variables)
+;; (require 'rtags)
+;; (cmake-ide-setup)
+
+(defun ycw:cmake-ide-init()
+  (setq enable-local-variables :all)
+  (hack-dir-local-variables)
+  (cmake-ide-setup))
+
+(add-hook 'c-mode-common-hook 'ycw:cxx-init)
+(add-hook 'c-mode-common-hook 'ycw:cmake-ide-init)
+(defun ycw:cxx-init ()
+  (ycw:yas-minor-init)
+  (ycw:rtags-init)
+  (irony-mode)
+  ;; (irony-cdb-autosetup-compile-options)
+  (eval-after-load 'company
+    '(add-to-list 'company-backends
+		  '(company-irony-c-headers company-irony)))
+  (company-mode)
+  (define-key c-mode-base-map
+    (kbd "<C-tab>") (function company-complete))
+  (require 'google-c-style)
+  (google-set-c-style)
+  (google-make-newline-indent)
+  )
+(defun ycw:rtags-init()
+  (require 'rtags)
+  (setq rtags-autostart-diagnostics t)
+  (setq rtags-completions-enabled t)
+  (rtags-enable-standard-keybindings)
+  (require 'company)
+  (push 'company-rtags company-backends)
+  )

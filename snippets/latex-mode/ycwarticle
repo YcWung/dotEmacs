@@ -1,0 +1,103 @@
+# -*- mode: latex -*-
+# name: ycwarticle
+# key: ycwarticle
+# --
+\documentclass[${1:a4paper,12pt}]{${2:article}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Title %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{${3:Title}}
+\author{${4:Yongchao Wang, 117071910023}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Packages %%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{mathabx}
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{blkarray}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{matrix, calc, arrows, shapes.multipart}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Layouts %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hypersetup{bookmarks=true, bookmarksnumbered=true,
+  colorlinks=true, linkcolor=blue}
+\geometry{left=${5:2}cm, right=${6:$5}cm, top=${7:2.5}cm, bottom=${8:$7}cm}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\allowdisplaybreaks[2]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Theorems %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\theoremstyle{plain}
+\newtheorem{Thm}{Theorem}[chapter]
+\newtheorem{Lem}[Thm]{Lemma}
+\newtheorem{Cor}[Thm]{Corollary}
+\newtheorem{Prop}[Thm]{Proposition}
+\newtheorem*{Thm*}{Theorem}
+\newtheorem*{Lem*}{Lemma}
+\newtheorem*{Cor*}{Corollary}
+\newtheorem*{Prop*}{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{Def}[Thm]{Definition}
+\newtheorem{Ex}{Execise}
+\newtheorem*{Def*}{Definition}
+\newtheorem*{Ex*}{Execise}
+
+\theoremstyle{remark}
+\newtheorem{Exm}[Thm]{Example}
+\newtheorem{Rmk}[Thm]{\underline{Remark}}
+\newtheorem*{Exm*}{Example}
+\newtheorem*{Rmk*}{\underline{Remark}}
+
+%%%%%%%%%%%%%%%%%%%%%%%% Self-defined %%%%%%%%%%%%%%%%%%%%%%%%%
+\def\QQ{\mathbb{Q}}
+\def\MM{\mathbb{M}}
+\def\CC{\mathbb{C}}
+\def\RR{\mathbb{R}}
+\def\ZZ{\mathbb{Z}}
+\def\KK{\mathbb{K}}
+\def\id{\mathrm{\mathbf{id}}}
+\def\RP{\mathbb{RP}}
+\def\span{\mathrm{\mathbf{span}}}
+\def\norm#1{\Vert #1 \Vert}
+\def\UTN{\mathrm{\mathbf{UTN}}}
+\def\GL{\mathrm{\mathbf{GL}}}
+\def\EE{\mathrm{\mathbf{E}}}
+\def\FF{\mathrm{\mathbf{F}}}
+\def\GG{\mathbb{G}}
+\def\range{\mathrm{\mathbf{range}}}
+\def\DS{\mathbf{\mathcal{D}}}
+\def\AA{\mathbf{\mathcal{A}}}
+\def\St{\mathrm{\mathbf{St}}}
+\def\rank{\mathrm{rank}}
+\def\graph{\mathrm{graph}}
+\def\coker{\mathrm{coker}}
+\def\vfld{\mathsf{X}}
+\def\dd#1{\frac{\mathrm{d}}{\mathrm{d}#1}}
+\def\newname#1{{\bf #1}}
+\def\newsym#1{\mathbf{#1}}
+\def\todo#1{{\color{red}#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%% Text %%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+$0
+\end{document}
+
+%%% Local Variables:
+%%% TeX-engine: default
+%%% TeX-source-correlate-method-active: synctex
+%%% coding: utf-8
+%%% End:

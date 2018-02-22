@@ -1,0 +1,5 @@
+# -*- mode: latex -*-
+# name: ycwdraw
+# key: ycwdraw
+# --
+\draw (m$2) edge[${4:->}] node[${5:auto}] {$6} (m$3);

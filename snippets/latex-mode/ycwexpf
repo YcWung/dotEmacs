@@ -1,0 +1,9 @@
+# -*- mode: latex -*-
+# name: ycwexr
+# key: ycwexr
+# --
+\begin{Exr*}[$1]
+$2
+\end{Exr*}
+\begin{proof}[Solution]$0
+\end{proof}

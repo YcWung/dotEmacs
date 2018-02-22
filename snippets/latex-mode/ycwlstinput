@@ -1,0 +1,5 @@
+# -*- mode: latex -*-
+# name: ycwlstinput
+# key: ycwlstinput
+# --
+\lstinputlisting[language=${1:Julia}, title=${2:Ex. }]{$0}

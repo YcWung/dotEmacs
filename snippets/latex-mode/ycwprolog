@@ -1,0 +1,10 @@
+# -*- mode: latex -*-
+# name: ycwprolog
+# key: ycwprolog
+# --
+% Prolog of some component
+\begin{flushright}
+\begin{minipage}{${1:0.6}\textwidth}
+$0
+\end{minipage}
+\end{flushright}

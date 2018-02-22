@@ -1,0 +1,12 @@
+# -*- mode: c++ -*-
+# name: trivial
+# key: trivial
+# --
+#include <iostream>
+#include <fstream>
+
+int main(int argc, char** argv){
+using namespace std;
+  $0
+  return 0;
+}

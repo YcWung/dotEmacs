@@ -1,0 +1,63 @@
+# -*- mode: latex -*-
+# name: ycwctexart
+# key: ycwctexart
+# --
+\documentclass[${1:a4paper,12pt}]{${2:ctexart}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% packages %%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% 排版设置 %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hypersetup{bookmarks=true, bookmarksnumbered=true,
+  colorlinks=true, linkcolor=blue}
+\geometry{left=${3:2.75}cm, right=${4:$3}cm, top=${5:3}cm, bottom=${6:$5}cm}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% 定义定理 %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{Thm}{Theorem}
+\newtheorem{thm}{定理}
+\newtheorem{Lem}{Lemma}
+\newtheorem{lem}{引理}
+\newtheorem{Crl}{Corollary}
+\newtheorem{crl}{推论}
+\newtheorem{Dfn}{Definition}
+\newtheorem{dfn}{定义}
+\newtheorem{Exm}{Example}
+\newtheorem{exm}{例}
+
+%%%%%%%%%%%%%%%%%%%%%%%% 自定义命令 %%%%%%%%%%%%%%%%%%%%%%%%%
+\def\QQ{\mathbb{Q}}
+\def\FF{\mathbb{F}}
+\def\CC{\mathbb{C}}
+\def\RR{\mathbb{R}}
+\def\ZZ{\mathbb{Z}}
+\def\question#1{{
+  \\\\[2mm]
+  \fbox{\begin{minipage}{\textwidth}
+          {\Large\textbf ?\ \ }#1
+        \end{minipage}}
+  \\\\[2mm]}}
+
+%%%%%%%%%%%%%%%%%%%%%%% 正文 %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+$0
+\end{document}
+
+%%% Local Variables:
+%%% TeX-engine: xetex
+%%% TeX-source-correlate-method-active: synctex
+%%% coding: utf-8
+%%% TeX-master: t
+%%% End:

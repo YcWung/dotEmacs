@@ -1,0 +1,13 @@
+# -*- mode: latex -*-
+# name: ycwcommdiag
+# key: ycwcommdiag
+# --
+\begin{tikzpicture}[>=triangle 45]
+  \matrix[matrix of math nodes,column sep={50pt,between origins},
+  row sep={50pt,between origins},nodes={asymmetrical rectangle}] (m)
+  {
+    |[name=]|$0 &|[name=]| \\\\
+  };
+  \draw[->] (m) edge node[auto] {} (m)
+  ;
+\end{tikzpicture}

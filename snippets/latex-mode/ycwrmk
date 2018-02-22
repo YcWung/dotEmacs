@@ -1,0 +1,9 @@
+# -*- mode: latex -*-
+# name: ycwrmk
+# key: ycwrmk
+# --
+\begin{${1:Rmk}}[$2]\leavevmode
+\begin{${3:itemize}}
+\item $0
+\end{$3}
+\end{$1}

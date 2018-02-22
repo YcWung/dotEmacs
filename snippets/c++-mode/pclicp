@@ -1,0 +1,13 @@
+# -*- mode: c++ -*-
+# name: pclicp
+# key: pclicp
+# --
+pcl::IterativeClosestPoint$1<${2:PointT}, ${3:$2}> ${4:icp};
+icp.setInputCloud (${5:pcdmv});
+icp.setInputTarget (${6:pcdfix});
+icp.setMaxCorrespondenceDistance (${7:stod(param["MaxCorrespondenceDistance"])});
+icp.setMaximumIterations (${8:stod(param["MaximumIterations"])});
+icp.setTransformationEpsilon (${9:stod(param["TransformationEpsilon"])});
+icp.setEuclideanFitnessEpsilon (${10:stod(param["EuclideanFitnessEpsilon"])});
+icp.align (*${11:pcdmvto});
+Eigen::Matrix4f ${12:T} = icp.getFinalTransformation ();

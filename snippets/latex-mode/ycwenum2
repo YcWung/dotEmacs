@@ -1,0 +1,12 @@
+# -*- mode: latex -*-
+# name: ycwenum2
+# key: ycwenum2
+# --
+\begin{enumerate}
+  \renewcommand{\labelenumi}{${1:(\roman{enumi})}}
+  \renewcommand{\labelenumii}{${2:(\alph{enumii})}}
+\item $0
+  \begin{enumerate}
+  \item 
+  \end{enumerate}
+\end{enumerate}
