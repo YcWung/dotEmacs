@@ -1,0 +1,33 @@
+# -*- mode: snippet -*-
+# name: gitlatex
+# key: gitlatex
+# --
+## LaTeX
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.idx
+*.url
+*.ind
+*.bbl
+*.blg
+*.brf
+*.fot
+*.glo
+*.gls
+*.ilg
+*.lof
+*.lot
+*.nav
+*.snm
+*.bcf
+*.run.xml
+*.fls
+*-blx.bib
+*.acn
+*.acr
+*.alg
+*.glg
+*.ist

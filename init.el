@@ -11,6 +11,7 @@
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
 (load "ycw-utils")
+(load "global-config")
 ;; Loads and set up auctex settings
 (load "auctex-config")
 ;; Loads and set up C++ settings

@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: gitemacs
+# key: gitemacs
+# --
+## Emacs
+\#*\#
+.\#.*
+*~
+auto/
