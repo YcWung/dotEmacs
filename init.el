@@ -33,9 +33,4 @@
     (flycheck google-c-style company-rtags rtags cmake-ide cmake-mode company-irony company-irony-c-headers term+ ess company-coq company company-auctex yasnippet auctex)))
  '(safe-local-variable-values (quote ((TeX-source-correlate-method-active . synctex))))
  '(tool-bar-mode nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "Noto Sans Mono" :foundry "GOOG" :slant normal :weight normal :height 98 :width normal)))))
+

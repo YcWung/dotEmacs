@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: osdep
+# key: osdep
+# --
+(cond ((eq system-type 'windows-nt)
+       (${1:eval-after-load "tex" 'ycw:auctex-win-init}))
+      ((eq system-type 'gnu/linux)
+       (${2:eval-after-load "tex" 'ycw:auctex-linux-init})))

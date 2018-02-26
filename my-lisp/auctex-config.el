@@ -8,7 +8,7 @@
 
 (setq-default TeX-default-mode 'LaTeX-mode)
 
-(add-hook 'LaTeX-mode-hook 'ycw-latex-init)
+(add-hook 'LaTeX-mode-hook 'ycw:latex-init)
 
 ;; (add-hook 'LaTeX-mode-hook
 ;; 	  (lambda ()
@@ -46,7 +46,7 @@
 ;; 	(output-pdf "Sumatra PDF") (output-html "start")))
 
 
-(defun ycw-latex-init ()
+(defun ycw:latex-init ()
   ;; (setenv "PATH"
   ;; 	  (concat "/home/ycw/.local/texlive/bin/x86_64-linux" ":"
   ;; 		  (getenv "PATH")))
