@@ -11,8 +11,8 @@
 ;; disable welcome page
 (setq inhibit-startup-message t)
 ;; Current line highlighting
-(require 'hl-line)
-(global-hl-line-mode)
+;; (require 'hl-line)
+;; (global-hl-line-mode)
 ;(setq ns-pop-up-frames nil)
 
 ;(column-number-mode)
