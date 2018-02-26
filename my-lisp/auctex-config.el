@@ -10,9 +10,9 @@
 
 ;; OS-dependent
 (cond ((eq system-type 'windows-nt)
-       (eval-after-load "tex" 'ycw:auctex-win-init))
+       (eval-after-load "tex" '(ycw:auctex-win-init)))
       ((eq system-type 'gnu/linux)
-       (eval-after-load "tex" 'ycw:auctex-linux-init)))
+       (eval-after-load "tex" '(ycw:auctex-linux-init))))
 
 (add-hook 'LaTeX-mode-hook 'ycw:latex-init)
 

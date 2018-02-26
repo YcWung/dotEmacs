@@ -12,14 +12,17 @@
   (ycw:yas-minor-init)
   (company-mode)
   )
-  
-;; ESS
-(require 'ess-site)
+
 ;; Julia
-(add-hook 'ess-julia-mode-hook
-	  (lambda ()
-	    (company-mode)
-	    (push 'company-keywords company-backends)))
+(eval-after-load "jl" '(ycw:julia-init))
+(defun ycw:julia-init()
+  ;; ESS
+  (require 'ess-site)
+  (ess-julia-mode)
+  (ycw:yas-minor-init)
+  (company-mode)
+  (push 'company-keywords company-backends))
+
 ;; CMake
 (setq auto-mode-alist
       (append
