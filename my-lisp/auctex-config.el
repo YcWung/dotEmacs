@@ -33,6 +33,8 @@
   (setq reftex-plug-into-AUCTeX t)
   (turn-on-reftex)
   ;; (LaTeX-math-mode)
+  (define-key global-map
+    (kbd "C-c p e") 'ycw:latex-goto-preamble-end)
   )
 
 (defun ycw:auctex-win-init()
@@ -54,3 +56,13 @@
   ;; ##### Shift + Left click to go to the good line.
   ;; ### Set Okular as the default PDF viewer.
   (setcar (cdr (assoc 'output-pdf TeX-view-program-selection)) "Okular"))
+
+(defun ycw:latex-goto-preamble-end()
+  (interactive)
+  (TeX-home-buffer)
+  (goto-char (or (re-search-forward "^[%[:blank:]]+Text" nil t)
+		 (re-search-backward "^[%[:blank:]]+Text" nil t)
+		 (re-search-forward "^\\\\begin{document}" nil t)
+		 (re-search-backward "^\\\\begin{document}" nil nil)))
+  (goto-char (line-beginning-position))
+  (backward-char))
