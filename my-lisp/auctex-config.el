@@ -39,6 +39,8 @@
   (setenv "PATH"
 	  (concat "d:/Portable/RW/texlive-minimal/bin/win32" ";"
 		  (getenv "PATH")))
+  (setq TeX-source-correlate-mode t
+	TeX-source-correlate-start-server t)
   (setq TeX-view-program-list 
 	'(("Sumatra PDF"
 	   ("\"d:/Portable/RW/SumatraPDFviewer/SumatraPDF.exe\" -reuse-instance" 
