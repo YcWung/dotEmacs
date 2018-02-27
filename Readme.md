@@ -1,7 +1,7 @@
 Install the following packages:
 
 - company
-- yasnippet
+- yasnippet, yasnippet-snippets
 
 
 - auctex, company-auctex
@@ -14,4 +14,4 @@ Install the following packages:
 - term+
 - ess
 - company-coq
-- PG (manually into `lisp/`)
+- PG (manually into, maybe, `lisp/`)
