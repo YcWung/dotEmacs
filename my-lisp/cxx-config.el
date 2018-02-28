@@ -11,16 +11,12 @@
 (add-hook 'c-mode-common-hook 'ycw:cxx-init)
 (add-hook 'c-mode-common-hook 'ycw:cmake-ide-init)
 (defun ycw:cxx-init ()
-  (ycw:yas-minor-init)
+  (ycw:company-yas-init)
   (ycw:rtags-init)
   (irony-mode)
-  ;; (irony-cdb-autosetup-compile-options)
   (eval-after-load 'company
     '(add-to-list 'company-backends
 		  '(company-irony-c-headers company-irony)))
-  (company-mode)
-  (define-key c-mode-base-map
-    (kbd "<C-tab>") (function company-complete))
   (require 'google-c-style)
   (google-set-c-style)
   (google-make-newline-indent)

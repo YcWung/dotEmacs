@@ -2,15 +2,14 @@
 (add-to-list 'auto-mode-alist '("\\.gitignore\\'" . text-mode))
 (add-hook 'text-mode-hook 'ycw:text-mode-init)
 (defun ycw:text-mode-init()
-  (ycw:yas-minor-init)
-  (company-mode)
+  (ycw:company-yas-init)
   )
 
 ;; Elisp mode settings
 (add-hook 'emacs-lisp-mode-hook 'ycw:elisp-init)
 (defun ycw:elisp-init()
-  (ycw:yas-minor-init)
-  (company-mode)
+  (push '(company-capf) company-backends)
+  (ycw:company-yas-init)
   )
 
 ;; Julia
@@ -19,8 +18,7 @@
   ;; ESS
   (require 'ess-site)
   (ess-julia-mode)
-  (ycw:yas-minor-init)
-  (company-mode)
+  (ycw:company-yas-init)
   (push 'company-keywords company-backends))
 
 ;; CMake

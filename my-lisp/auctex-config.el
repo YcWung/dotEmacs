@@ -2,10 +2,6 @@
 (setq TeX-parse-self t)
 (setq TeX-save-query nil)
 (setq-default TeX-master nil)
-
-;; (setq TeX-source-correlate-mode t
-;;       TeX-source-correlate-start-server t)
-
 (setq-default TeX-default-mode 'LaTeX-mode)
 
 ;; OS-dependent
@@ -17,17 +13,11 @@
 (add-hook 'LaTeX-mode-hook 'ycw:latex-init)
 
 (defun ycw:latex-init ()
-  ;; (setenv "PATH"
-  ;; 	  (concat "/home/ycw/.local/texlive/bin/x86_64-linux" ":"
-  ;; 		  (getenv "PATH")))
-  (require 'yasnippet)
-  (yas-reload-all)
-  (yas-minor-mode-on)
-  (eval-after-load 'company
-    '(add-to-list 'company-backends 'company-yasnippet))
-  (company-mode)
   (require 'company-auctex)
   (company-auctex-init)
+  (ycw:append-backward-to-company-initial-backend
+   'company-auctex-bibs 'company-auctex-labels 'company-dabbrev)
+  (ycw:company-yas-init)
   ;; (setq outline-minor-mode-prefix "\C-c\C-o")
   ;; (outline-minor-mode 1)
   (setq reftex-plug-into-AUCTeX t)
@@ -52,9 +42,6 @@
 	  (output-pdf "Sumatra PDF") (output-html "start"))))
 
 (defun ycw:auctex-linux-init()
-  ;; ##### Enable synctex correlation. From Okular just press
-  ;; ##### Shift + Left click to go to the good line.
-  ;; ### Set Okular as the default PDF viewer.
   (setcar (cdr (assoc 'output-pdf TeX-view-program-selection)) "Okular"))
 
 (defun ycw:latex-goto-preamble-end()
