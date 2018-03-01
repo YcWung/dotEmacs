@@ -85,7 +85,9 @@
 \def\graph{\mathrm{graph}}
 \def\coker{\mathrm{coker}}
 \def\vfld{\mathsf{X}}
-\def\dd#1{\frac{\mathrm{d}}{\mathrm{d}#1}}
+\newcommand{\pp}[3][]{\frac{\partial^{#1} #2}{\partial #3^{#1}}}
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\dd}[3][]{\frac{\mathrm{d}^{#1} #2}{\mathrm{d}#3^{#1}}}
 \def\newname#1{{\bf #1}}
 \def\newsym#1{\mathbf{#1}}
 \def\todo#1{{\color{red}#1}}
