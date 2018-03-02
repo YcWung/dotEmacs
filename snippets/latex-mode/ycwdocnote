@@ -67,55 +67,43 @@
 \newtheorem*{Rmk*}{\underline{Remark}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Self-defined %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\def\QQ{\mathbb{Q}}
-\def\MM{\mathbb{M}}
-\def\CC{\mathbb{C}}
-\def\RR{\mathbb{R}}
-\def\ZZ{\mathbb{Z}}
-\def\KK{\mathbb{K}}
-\def\id{\mathrm{\mathbf{id}}}
-\def\RP{\mathbb{RP}}
-\def\span{\mathrm{\mathbf{span}}}
-\def\norm#1{\Vert #1 \Vert}
-\def\UTN{\mathrm{\mathbf{UTN}}}
-\def\GL{\mathrm{\mathbf{GL}}}
-\def\EE{\mathrm{\mathbf{E}}}
-\def\FF{\mathrm{\mathbf{F}}}
-\def\GG{\mathbb{G}}
-\def\range{\mathrm{\mathbf{range}}}
-\def\DS{\mathbf{\mathcal{D}}}
-\def\AA{\mathbf{\mathcal{A}}}
-\def\St{\mathrm{\mathbf{St}}}
-\def\rank{\mathrm{rank}}
-\def\graph{\mathrm{graph}}
-\def\coker{\mathrm{Coker}}
-\def\vfld{\mathsf{X}}
-\def\corresponds{\longleftrightarrow}
-\def\End{\mathrm{End}}
-\def\Ab{\mathrm{\mathbf{A\!b}}}
-\def\lMod#1{#1\text{-}\mathrm{Mod}}
-\def\rMod#1{\mathrm{Mod}\text{-}#1}
-\def\biMod#1#2{{#1\text{-}\mathrm{Mod}\text{-}#2}}
-\def\Ext{\mathrm{Ext}}
-\def\Tor{\mathrm{Tor}}
-\def\hom{\mathrm{Hom}}
-\def\ker{\mathrm{Ker}}
-\def\coim{\mathrm{Coim}}
-\def\im{\mathrm{Im}}
-\def\Ccat{\mathcal{C}}
-\def\Set{\mathcal{S}\mathrm{et}}
+\DeclareMathOperator{\QQ}{\mathbb{Q}}
+\DeclareMathOperator{\CC}{\mathbb{C}}
+\DeclareMathOperator{\RR}{\mathbb{R}}
+\DeclareMathOperator{\ZZ}{\mathbb{Z}}
+\DeclareMathOperator{\id}{\mathrm{\mathbf{id}}}
+\DeclareMathOperator{\RP}{\mathbb{RP}}
+\DeclareMathOperator{\GL}{\mathrm{\mathbf{GL}}}
+\DeclareMathOperator{\range}{\mathrm{\mathbf{range}}}
+\DeclareMathOperator{\St}{\mathrm{\mathbf{St}}}
+\DeclareMathOperator{\rank}{\mathrm{rank}}
+\DeclareMathOperator{\graph}{\mathrm{graph}}
+\DeclareMathOperator{\coker}{\mathrm{Coker}}
+\DeclareMathOperator{\vfld}{\mathsf{X}}
+\DeclareMathOperator{\End}{\mathrm{End}}
+\DeclareMathOperator{\Ab}{\mathrm{\mathbf{A\!b}}}
+\DeclareMathOperator{\Ext}{\mathrm{Ext}}
+\DeclareMathOperator{\Tor}{\mathrm{Tor}}
+\DeclareMathOperator{\coim}{\mathrm{Coim}}
+\DeclareMathOperator{\im}{\mathrm{Im}}
+\DeclareMathOperator{\Ccat}{\mathcal{C}}
+\DeclareMathOperator{\Set}{\mathcal{S}\mathrm{et}}
+\newcommand{\norm}[1]{\Vert #1 \Vert}
+\newcommand{\inn}[2]{\langle #1,#2\rangle}
+\newcommand{\lMod}[1]{#1\text{-}\mathrm{Mod}}
+\newcommand{\rMod}[1]{\mathrm{Mod}\text{-}#1}
+\newcommand{\biMod}[2]{{#1\text{-}\mathrm{Mod}\text{-}#2}}
 \newcommand{\pp}[3][]{\frac{\partial^{#1} #2}{\partial #3^{#1}}}
 \renewcommand{\d}{\mathrm{d}}
 \newcommand{\dd}[3][]{\frac{\mathrm{d}^{#1} #2}{\mathrm{d}#3^{#1}}}
-\def\nn#1{{\bf #1}}
-\def\nsym#1{\mathbf{#1}}
-\def\todo#1{{\color{RawSienna}\framebox{\tiny\textsf{TODO}}\ #1}}
-% \def\todo#1{{\color{Plum}\tcbox{\tiny\textsf{TODO}}\ #1}}
-\def\ntopic#1{\dashuline{#1}}
-\def\easy#1{{\color{Green}#1}}
-\def\neasy#1{{\color{Red}#1}}
-\def\note#1{{\color{NavyBlue}\uline{#1}}}
-\def\lentry{{$\blackdiamond$\ }}
+\newcommand{\nn}[1]{{\bf #1}}
+\newcommand{\nsym}[1]{\mathbf{#1}}
+\newcommand{\todo}[1]{{\color{RawSienna}\framebox{\tiny\textsf{TODO}}\ #1}}
+\newcommand{\ntopic}[1]{\dashuline{#1}}
+\newcommand{\easy}[1]{{\color{Green}#1}}
+\newcommand{\neasy}[1]{{\color{Red}#1}}
+\newcommand{\note}[1]{{\color{NavyBlue}\uline{#1}}}
+\newcommand{\lentry}{{$\blackdiamond$\ }}
 \makeatletter
 \newcommand\colorwave[1][BrickRed]{
   \bgroup\markoverwith{\lower3.5\p@\hbox{\sixly \textcolor{#1}{\char58}}}\ULon}

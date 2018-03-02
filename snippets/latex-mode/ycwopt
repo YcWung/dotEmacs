@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: ycwopt
+# key: ycwopt
+# --
+\begin{equation*}
+\begin{aligned}
+  \min\quad &${1:f_0(x)}\\\\
+  \st\quad &${2:f_j(x)\geq b_j,\ j=1,\dots,m}\\\\
+\end{aligned}
+\end{equation*}
