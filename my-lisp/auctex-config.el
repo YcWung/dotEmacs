@@ -15,6 +15,7 @@
 (defun ycw:latex-init ()
   (require 'company-auctex)
   (company-auctex-init)
+  (setq case-replace nil)
   (ycw:append-backward-to-company-initial-backend
    'company-auctex-bibs 'company-auctex-labels 'company-dabbrev)
   (ycw:company-yas-init)
