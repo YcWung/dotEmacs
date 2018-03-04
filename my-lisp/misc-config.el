@@ -2,6 +2,8 @@
 (add-to-list 'auto-mode-alist '("\\.gitignore\\'" . text-mode))
 (add-hook 'text-mode-hook 'ycw:text-mode-init)
 (defun ycw:text-mode-init()
+  (setq require-final-newline nil)
+  (push '(company-dabbrev) company-backends)
   (ycw:company-yas-init)
   )
 
