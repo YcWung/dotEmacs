@@ -67,28 +67,28 @@
 \newtheorem*{Rmk*}{\underline{Remark}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Self-defined %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\DeclareMathOperator*{\QQ}{\mathbb{Q}}
-\DeclareMathOperator*{\CC}{\mathbb{C}}
-\DeclareMathOperator*{\RR}{\mathbb{R}}
-\DeclareMathOperator*{\ZZ}{\mathbb{Z}}
-\DeclareMathOperator*{\Diff}{\mathbf{D}}
-\DeclareMathOperator*{\id}{\mathrm{\mathbf{id}}}
-\DeclareMathOperator*{\RP}{\mathbb{RP}}
-\DeclareMathOperator*{\GL}{\mathrm{\mathbf{GL}}}
-\DeclareMathOperator*{\range}{\mathrm{\mathbf{range}}}
-\DeclareMathOperator*{\St}{\mathrm{\mathbf{St}}}
-\DeclareMathOperator*{\rank}{\mathrm{rank}}
-\DeclareMathOperator*{\graph}{\mathrm{graph}}
-\DeclareMathOperator*{\coker}{\mathrm{Coker}}
-\DeclareMathOperator*{\vfld}{\mathsf{X}}
-\DeclareMathOperator*{\End}{\mathrm{End}}
-\DeclareMathOperator*{\Ab}{\mathrm{\mathbf{A\!b}}}
-\DeclareMathOperator*{\Ext}{\mathrm{Ext}}
-\DeclareMathOperator*{\Tor}{\mathrm{Tor}}
-\DeclareMathOperator*{\coim}{\mathrm{Coim}}
-\DeclareMathOperator*{\im}{\mathrm{Im}}
-\DeclareMathOperator*{\Ccat}{\mathcal{C}}
-\DeclareMathOperator*{\Set}{\mathcal{S}\mathrm{et}}
+\DeclareMathOperator{\QQ}{\mathbb{Q}}
+\DeclareMathOperator{\CC}{\mathbb{C}}
+\DeclareMathOperator{\RR}{\mathbb{R}}
+\DeclareMathOperator{\ZZ}{\mathbb{Z}}
+\DeclareMathOperator{\Diff}{\mathbf{D}}
+\DeclareMathOperator{\id}{\mathrm{\mathbf{id}}}
+\DeclareMathOperator{\RP}{\mathbb{RP}}
+\DeclareMathOperator{\GL}{\mathrm{\mathbf{GL}}}
+\DeclareMathOperator{\range}{\mathrm{\mathbf{range}}}
+\DeclareMathOperator{\St}{\mathrm{\mathbf{St}}}
+\DeclareMathOperator{\rank}{\mathrm{rank}}
+\DeclareMathOperator{\graph}{\mathrm{graph}}
+\DeclareMathOperator{\coker}{\mathrm{Coker}}
+\DeclareMathOperator{\vfld}{\mathsf{X}}
+\DeclareMathOperator{\End}{\mathrm{End}}
+\DeclareMathOperator{\Ab}{\mathrm{\mathbf{A\!b}}}
+\DeclareMathOperator{\Ext}{\mathrm{Ext}}
+\DeclareMathOperator{\Tor}{\mathrm{Tor}}
+\DeclareMathOperator{\coim}{\mathrm{Coim}}
+\DeclareMathOperator{\im}{\mathrm{Im}}
+\DeclareMathOperator{\Ccat}{\mathcal{C}}
+\DeclareMathOperator{\Set}{\mathcal{S}\mathrm{et}}
 \newcommand{\norm}[1]{\Vert #1 \Vert}
 \newcommand{\inn}[2]{\langle #1,#2\rangle}
 \newcommand{\lMod}[1]{#1\text{-}\mathrm{Mod}}

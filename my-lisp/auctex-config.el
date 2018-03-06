@@ -43,6 +43,9 @@
 	  (output-pdf "Sumatra PDF") (output-html "start"))))
 
 (defun ycw:auctex-linux-init()
+  (setq TeX-source-correlate-mode t)
+  (setq TeX-source-correlate-method 'synctex)
+  (setq TeX-source-correlate-start-server t)
   (setcar (cdr (assoc 'output-pdf TeX-view-program-selection)) "Okular"))
 
 (defun ycw:latex-goto-preamble-end()
