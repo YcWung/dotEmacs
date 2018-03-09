@@ -103,6 +103,19 @@
 \NewDocumentCommand{\ycwpp}{m m m}{
   \frac{\partial^{#1}\IfValueTF{#3}{#2}{}}{
     \partial\IfValueTF{#3}{#3}{#2}^{#1}}}
+\NewDocumentCommand{\tridiagm}{O{4}>{\SplitArgument{2}{|}}m}{\ycwtridiagm{#1}#2}
+\NewDocumentCommand{\ycwtridiagm}{m m m m}{
+  \begin{pmatrix}
+    #3 & #4 &&\\\\
+    #2 & #3 & \ddots &\\\\
+    & \ddots & \ddots & #4\\\\
+    && #2 & #3
+  \end{pmatrix}}
+\NewDocumentCommand{\colvec}{O{n} m}{
+  \begin{pmatrix}
+    #2_1 \\\\ #2_2 \\\\ \vdots \\\\#2_{#1}
+  \end{pmatrix}
+}
 \newcommand{\nn}[1]{{\bf #1}}
 \newcommand{\nsym}[1]{\mathbf{#1}}
 \newcommand{\todo}[1]{{\color{RawSienna}\framebox{\tiny\textsf{TODO}}\ #1}}
