@@ -29,6 +29,7 @@
 \usepackage{tikz}
 \usetikzlibrary{matrix, calc, arrows, cd, shapes.multipart}
 \usepackage{tcolorbox}
+\usepackage{xparse}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Layouts %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \geometry{left=${5:1em}, right=${6:$5}, top=${7:1em}, bottom=${8:$7},
@@ -94,7 +95,7 @@
 \newcommand{\lMod}[1]{#1\text{-}\mathrm{Mod}}
 \newcommand{\rMod}[1]{\mathrm{Mod}\text{-}#1}
 \newcommand{\biMod}[2]{{#1\text{-}\mathrm{Mod}\text{-}#2}}
-\renewcommand{\diff}{\mathrm{d}}
+\newcommand{\diff}{\mathrm{d}}
 \NewDocumentCommand{\dd}{O{} >{\SplitArgument{1}{|}}m}{\ycwdd{#1}#2}
 \NewDocumentCommand{\ycwdd}{m m m}{
   \frac{\mathrm{d}^{#1}\IfValueTF{#3}{#2}{}}{
