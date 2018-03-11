@@ -58,30 +58,35 @@
 \theoremstyle{definition}
 \newtheorem{Def}[Thm]{Definition}
 \newtheorem{Ex}{Execise}
+\newtheorem{Rfm}{Reformulation}
+\newtheorem*{Rfm*}{Reformulation}
 \newtheorem*{Def*}{Definition}
 \newtheorem*{Ex*}{Execise}
 
 \theoremstyle{remark}
 \newtheorem{Exm}[Thm]{\colorwave{Example}}
 \newtheorem{Rmk}[Thm]{\underline{Remark}}
+\newtheorem{Rec}[Thm]{Recall}
 \newtheorem*{Exm*}{\colorwave{Example}}
 \newtheorem*{Rmk*}{\underline{Remark}}
+\newtheorem*{Rec*}{Recall}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Self-defined %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% general sets, spaces,
 \DeclareMathOperator{\QQ}{\mathbb{Q}}
 \DeclareMathOperator{\CC}{\mathbb{C}}
 \DeclareMathOperator{\RR}{\mathbb{R}}
 \DeclareMathOperator{\ZZ}{\mathbb{Z}}
-\DeclareMathOperator{\Diff}{\mathbf{D}}
-\DeclareMathOperator{\id}{\mathrm{\mathbf{id}}}
-\DeclareMathOperator{\RP}{\mathbb{RP}}
-\DeclareMathOperator{\GL}{\mathrm{\mathbf{GL}}}
 \DeclareMathOperator{\range}{\mathrm{\mathbf{range}}}
-\DeclareMathOperator{\St}{\mathrm{\mathbf{St}}}
 \DeclareMathOperator{\rank}{\mathrm{rank}}
 \DeclareMathOperator{\graph}{\mathrm{graph}}
-\DeclareMathOperator{\coker}{\mathrm{Coker}}
+% geometry
+\DeclareMathOperator{\RP}{\mathbb{RP}}
+\DeclareMathOperator{\mfdSt}{\mathrm{\mathbf{St}}}
 \DeclareMathOperator{\vfld}{\mathsf{X}}
+% algebra
+\DeclareMathOperator{\id}{\mathrm{\mathbf{id}}}
+\DeclareMathOperator{\coker}{\mathrm{Coker}}
 \DeclareMathOperator{\End}{\mathrm{End}}
 \DeclareMathOperator{\Ab}{\mathrm{\mathbf{A\!b}}}
 \DeclareMathOperator{\Ext}{\mathrm{Ext}}
@@ -95,15 +100,11 @@
 \newcommand{\lMod}[1]{#1\text{-}\mathrm{Mod}}
 \newcommand{\rMod}[1]{\mathrm{Mod}\text{-}#1}
 \newcommand{\biMod}[2]{{#1\text{-}\mathrm{Mod}\text{-}#2}}
-\newcommand{\diff}{\mathrm{d}}
-\NewDocumentCommand{\dd}{O{} >{\SplitArgument{1}{|}}m}{\ycwdd{#1}#2}
-\NewDocumentCommand{\ycwdd}{m m m}{
-  \frac{\mathrm{d}^{#1}\IfValueTF{#3}{#2}{}}{
-    \mathrm{d}\IfValueTF{#3}{#3}{#2}^{#1}}}
-\NewDocumentCommand{\pp}{O{} >{\SplitArgument{1}{|}}m}{\ycwpp{#1}#2}
-\NewDocumentCommand{\ycwpp}{m m m}{
-  \frac{\partial^{#1}\IfValueTF{#3}{#2}{}}{
-    \partial\IfValueTF{#3}{#3}{#2}^{#1}}}
+\DeclareMathOperator\Aut{\mathrm{Aut}}
+\DeclareMathOperator\Int{\mathrm{Int}}
+\DeclareMathOperator\Out{\mathrm{Out}}
+% matrix
+\DeclareMathOperator{\tr}{tr}
 \NewDocumentCommand{\tridiagm}{O{4}>{\SplitArgument{2}{|}}m}{\ycwtridiagm{#1}#2}
 \NewDocumentCommand{\ycwtridiagm}{m m m m}{
   \begin{pmatrix}
@@ -117,13 +118,30 @@
     #2_1 \\\\ #2_2 \\\\ \vdots \\\\#2_{#1}
   \end{pmatrix}
 }
+\DeclareMathOperator{\wdvec}{vec}
+\DeclareMathOperator{\wddiag}{diag}
+\DeclareMathOperator{\wdsbd}{\mathrm{SBD}}
+\DeclareMathOperator{\wdsym}{\mathrm{Sym}}
+% differential calculus
+\DeclareMathOperator{\Diff}{\mathbf{D}}
+\newcommand{\diff}{\mathrm{d}}
+\NewDocumentCommand{\dd}{O{} >{\SplitArgument{1}{|}}m}{\ycwdd{#1}#2}
+\NewDocumentCommand{\ycwdd}{m m m}{
+  \frac{\mathrm{d}^{#1}\IfValueTF{#3}{#2}{}}{
+    \mathrm{d}\IfValueTF{#3}{#3}{#2}^{#1}}}
+\NewDocumentCommand{\pp}{O{} >{\SplitArgument{1}{|}}m}{\ycwpp{#1}#2}
+\NewDocumentCommand{\ycwpp}{m m m}{
+  \frac{\partial^{#1}\IfValueTF{#3}{#2}{}}{
+    \partial\IfValueTF{#3}{#3}{#2}^{#1}}}
+% note taking
 \newcommand{\nn}[1]{{\bf #1}}
 \newcommand{\nsym}[1]{\mathbf{#1}}
-\newcommand{\todo}[1]{{\color{RawSienna}\framebox{\tiny\textsf{TODO}}\ #1}}
+\newcommand{\todo}[1]{{\color{RawSienna}#1\textsuperscript{
+      \frame{\tiny\textsf{todo}}}}}
 \newcommand{\ntopic}[1]{\dashuline{#1}}
 \newcommand{\easy}[1]{{\color{Green}#1}}
-\newcommand{\neasy}[1]{{\color{Red}#1}}
-\newcommand{\note}[1]{{\color{NavyBlue}\uline{#1}}}
+\newcommand{\neasy}[1]{{\color{NavyBlue}#1}}
+\newcommand{\note}[1]{{\color{red}\uline{#1}}}
 \newcommand{\lentry}{{$\blackdiamond$\ }}
 \makeatletter
 \newcommand\colorwave[1][BrickRed]{
@@ -131,6 +149,47 @@
 \font\sixly=lasy6
 \makeatother
 \definecolor{lgray}{gray}{0.8}
+% Lie alg
+\newcommand\liegl{\mathfrak{gl}}
+\newcommand\liesl{\mathfrak{sl}}
+\newcommand\lieso{\mathfrak{so}}
+\newcommand\lieo{\mathfrak{o}}
+\newcommand\liesp{\mathfrak{sp}}
+\newcommand\lieg{\mathfrak{g}}
+\newcommand\lieh{\mathfrak{h}}
+\newcommand\liek{\mathfrak{k}}
+\newcommand\liet{\mathfrak{t}}
+\newcommand\lied{\mathfrak{d}}
+\newcommand\lien{\mathfrak{n}}
+\newcommand\liea{\mathfrak{a}}
+\newcommand\lieb{\mathfrak{b}}
+\newcommand\lieA{\mathsf{A}}
+\newcommand\lieB{\mathsf{B}}
+\newcommand\lieC{\mathsf{C}}
+\newcommand\lieD{\mathsf{D}}
+\DeclareMathOperator\ad{\mathrm{ad}}
+\DeclareMathOperator\Der{\mathrm{Der}}
+\newcommand\formB{\mathcal{B}}
+\DeclareMathOperator{\Rad}{Rad}
+% Lie group
+\DeclareMathOperator{\LieGL}{GL}
+\DeclareMathOperator{\LieSE}{SE}
+\DeclareMathOperator{\LieSO}{SO}
+\DeclareMathOperator{\LieO}{O}
+% probability
+\DeclareMathOperator{\distN}{\mathcal{N}}
+\DeclareMathOperator{\distLgv}{Langevin}
+% graph theory
+\DeclareMathOperator{\ghE}{\mathcal{E}}
+\DeclareMathOperator{\ghG}{\mathit{G}}
+\DeclareMathOperator{\ghDiE}{\overrightarrow{\mathcal{E}}}
+\DeclareMathOperator{\ghDiG}{\overrightarrow{\mathit{G}}}
+\DeclareMathOperator{\ghV}{\mathcal{V}}
+% misc
+\DeclareMathOperator{\opLag}{\mathcal{L}}
+\DeclareMathOperator{\symFr}{\overrightarrow{\mathcal{F}}}
+\DeclareMathOperator{\symFrs}{\mathfrak{F}}
+\NewDocumentCommand{\tactic}{D<>{Idea}O{Proof}}{#1 of #2}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Text %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
