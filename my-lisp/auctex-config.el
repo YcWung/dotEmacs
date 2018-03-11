@@ -26,6 +26,16 @@
   ;; (LaTeX-math-mode)
   (define-key global-map
     (kbd "C-c p e") 'ycw:latex-goto-preamble-end)
+  (LaTeX-add-environments
+   '("Thm" LaTeX-env-label)
+   '("Rfm" LaTeX-env-label)
+   '("Lem" LaTeX-env-label)
+   '("Prop" LaTeX-env-label)
+   '("Def" LaTeX-env-label)
+   '("Cor" LaTeX-env-label)
+   '("Rmk" LaTeX-env-label)
+   '("Ex" LaTeX-env-label)
+   '("Exm" LaTeX-env-label))
   )
 
 (defun ycw:auctex-win-init()
