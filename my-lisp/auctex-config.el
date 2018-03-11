@@ -8,7 +8,9 @@
 (cond ((eq system-type 'windows-nt)
        (eval-after-load "tex" '(ycw:auctex-win-init)))
       ((eq system-type 'gnu/linux)
-       (eval-after-load "tex" '(ycw:auctex-linux-init))))
+       (eval-after-load "tex" '(ycw:auctex-linux-init)))
+      ((eq system-type 'darwin)
+       (eval-after-load "tex" '(ycw:auctex-macos-init))))
 
 (add-hook 'LaTeX-mode-hook 'ycw:latex-init)
 
@@ -47,6 +49,18 @@
   (setq TeX-source-correlate-method 'synctex)
   (setq TeX-source-correlate-start-server t)
   (setcar (cdr (assoc 'output-pdf TeX-view-program-selection)) "Okular"))
+
+(defun ycw:auctex-macos-init()
+  (setenv "PATH"
+	  (concat "/usr/local/texlive/2017/bin/x86_64-darwin" ":"
+		  (getenv "PATH")))
+  (setq TeX-source-correlate-mode t)
+  (setq TeX-source-correlate-method 'synctex)
+  (setq TeX-source-correlate-start-server t)
+  (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
+  ;; -b -g %n %o %b
+  (setq TeX-view-program-list
+	'(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline %n %o %b"))))
 
 (defun ycw:latex-goto-preamble-end()
   (interactive)
