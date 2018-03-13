@@ -30,6 +30,7 @@
 \usetikzlibrary{matrix, calc, arrows, cd, shapes.multipart}
 \usepackage{tcolorbox}
 \usepackage{xparse}
+\usepackage{ifthen}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Layouts %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \geometry{left=${5:1em}, right=${6:$5}, top=${7:1em}, bottom=${8:$7},
@@ -66,10 +67,10 @@
 \theoremstyle{remark}
 \newtheorem{Exm}[Thm]{\colorwave{Example}}
 \newtheorem{Rmk}[Thm]{\underline{Remark}}
-\newtheorem{Rec}[Thm]{Recall}
+\newtheorem{Rec}[Thm]{\framebox{Recall}}
 \newtheorem*{Exm*}{\colorwave{Example}}
 \newtheorem*{Rmk*}{\underline{Remark}}
-\newtheorem*{Rec*}{Recall}
+\newtheorem*{Rec*}{\framebox{Recall}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Self-defined %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % general sets, spaces,
@@ -107,10 +108,12 @@
 \DeclareMathOperator{\tr}{tr}
 \NewDocumentCommand{\tridiagm}{O{4}>{\SplitArgument{2}{|}}m}{\ycwtridiagm{#1}#2}
 \NewDocumentCommand{\ycwtridiagm}{m m m m}{
+  \newcommand\dotfst{\ifthenelse{\equal{#2}{}}{\relax}{\ddots}}
+  \newcommand\dotthd{\ifthenelse{\equal{#4}{}}{\relax}{\ddots}}
   \begin{pmatrix}
     #3 & #4 &&\\\\
-    #2 & #3 & \ddots &\\\\
-    & \ddots & \ddots & #4\\\\
+    #2 & #3 & \dotthd &\\\\
+    & \dotfst & \ddots & #4\\\\
     && #2 & #3
   \end{pmatrix}}
 \NewDocumentCommand{\colvec}{O{n} m}{
@@ -123,16 +126,17 @@
 \DeclareMathOperator{\wdsbd}{\mathrm{SBD}}
 \DeclareMathOperator{\wdsym}{\mathrm{Sym}}
 % differential calculus
+\DeclareMathOperator{\wdgrad}{grad}
 \DeclareMathOperator{\Diff}{\mathbf{D}}
 \newcommand{\diff}{\mathrm{d}}
 \NewDocumentCommand{\dd}{O{} >{\SplitArgument{1}{|}}m}{\ycwdd{#1}#2}
 \NewDocumentCommand{\ycwdd}{m m m}{
   \frac{\mathrm{d}^{#1}\IfValueTF{#3}{#2}{}}{
-    \mathrm{d}\IfValueTF{#3}{#3}{#2}^{#1}}}
+    \mathrm{d}\IfValueTF{#3}{#3}{{#2}}^{#1}}}
 \NewDocumentCommand{\pp}{O{} >{\SplitArgument{1}{|}}m}{\ycwpp{#1}#2}
 \NewDocumentCommand{\ycwpp}{m m m}{
   \frac{\partial^{#1}\IfValueTF{#3}{#2}{}}{
-    \partial\IfValueTF{#3}{#3}{#2}^{#1}}}
+    \partial\IfValueTF{#3}{#3}{{#2}}^{#1}}}
 % note taking
 \newcommand{\nn}[1]{{\bf #1}}
 \newcommand{\nsym}[1]{\mathbf{#1}}
@@ -149,6 +153,10 @@
 \font\sixly=lasy6
 \makeatother
 \definecolor{lgray}{gray}{0.8}
+\NewDocumentCommand{\goal}{m}{
+  {\color{cyan}
+    \makebox[0ex][l]{\ \,\color{orange}\it gl}
+    \mbox{$\shortmid\!=\!=\!\!\!>\!\!\!>\!\!\!>$} } {\color{Orange}#1}}
 % Lie alg
 \newcommand\liegl{\mathfrak{gl}}
 \newcommand\liesl{\mathfrak{sl}}
@@ -163,6 +171,7 @@
 \newcommand\lien{\mathfrak{n}}
 \newcommand\liea{\mathfrak{a}}
 \newcommand\lieb{\mathfrak{b}}
+\newcommand\liec{\mathfrak{c}}
 \newcommand\lieA{\mathsf{A}}
 \newcommand\lieB{\mathsf{B}}
 \newcommand\lieC{\mathsf{C}}
