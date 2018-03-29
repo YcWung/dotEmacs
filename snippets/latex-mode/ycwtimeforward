@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ycwtimeforward
+# key: tf
+# --
+\frac{${1:u}^{${2:n}+1}_{${3:j}}-$1^{$2}_{$3}}{\Delta ${4:t}}

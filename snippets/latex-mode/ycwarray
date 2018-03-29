@@ -1,0 +1,9 @@
+# -*- mode: latex -*-
+# name: ycwarray
+# key: array
+# --
+\left$1
+  \begin{array}{$3}
+  $0
+  \end{array}
+\right$2

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: ycwproof
+# key: pf
+# --
+\begin{proof}${1:[\tactic]}
+$0
+\end{proof}

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ycwsupsubscripts
+# key: ss
+# --
+${1:u}^{${2:n}}_{${3:j}}

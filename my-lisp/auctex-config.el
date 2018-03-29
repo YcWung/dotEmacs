@@ -15,12 +15,23 @@
 (add-hook 'LaTeX-mode-hook 'ycw:latex-init)
 
 (defun ycw:latex-init ()
+  ;; cdlatex
+  (ycw:cdlatex-config)
+  (turn-on-cdlatex)
+  (define-key cdlatex-mode-map  "\t"        nil)
+  (define-key cdlatex-mode-map  (kbd "C-<tab>") 'cdlatex-tab)
+  ;; (define-key global-map (kbd "C-<tab>") 'indent-for-tab-command)
+  ;; company and yasnippet
   (require 'company-auctex)
   (company-auctex-init)
   (setq case-replace nil)
   (ycw:append-backward-to-company-initial-backend
-   'company-auctex-bibs 'company-auctex-labels 'company-dabbrev)
+   'company-auctex-bibs 'company-auctex-labels 'company-dabbrev 'company-files)
   (ycw:company-yas-init)
+  ;; (define-key yas-minor-mode-map [(tab)]        nil)
+  ;; (define-key yas-minor-mode-map (kbd "TAB")    nil)
+  ;; (define-key yas-minor-mode-map (kbd "<tab>")  nil)
+  ;; (define-key yas-minor-mode-map (kbd "C-<tab>") 'yas-expand)
   ;; (setq outline-minor-mode-prefix "\C-c\C-o")
   ;; (outline-minor-mode 1)
   (setq reftex-plug-into-AUCTeX t)
@@ -38,6 +49,8 @@
    '("Rmk" LaTeX-env-label)
    '("Ex" LaTeX-env-label)
    '("Exm" LaTeX-env-label))
+  (add-to-list 'LaTeX-indent-environment-list '("align*"))
+  (add-to-list 'LaTeX-indent-environment-list '("align"))
   )
 
 (defun ycw:auctex-win-init()
@@ -81,3 +94,48 @@
 		 (re-search-backward "^\\\\begin{document}" nil nil)))
   (goto-char (line-beginning-position))
   (backward-char))
+
+(defun ycw:cdlatex-config()
+  ;; (add-hook 'cdlatex-tab-hook 'indent-for-tab-command)
+  ;; (setq cdlatex-simplify-sub-super-scripts nil)
+  (setq cdlatex-env-alist
+	'(("Def"
+	   "\\begin{Def}\nAUTOLABEL\n?\n\\end{Def}\n" nil)
+	  ("Thm"
+	   "\\begin{Thm}\nAUTOLABEL\n?\n\\end{Thm}\n" nil)
+	  ("equation*"
+	   "\\begin{equation*}\n?\n\\end{equation*}\n" nil)
+	  ("ycwpf"
+	   "\\begin{proof}[\\tactic?]\n\n\\end{proof}\n" nil)
+	  ("mat("
+	   "\\begin{pmatrix}?\\end{pmatrix}" nil)
+	  ("mat"
+	   "\\begin{matrix}?\\end{matrix}" nil)))
+  (setq cdlatex-command-alist
+	'(("Def" "Insert definition env"   ""
+	   cdlatex-environment("Def") t nil)
+	  ("Thm" "Insert theorem env" ""
+	   cdlatex-environment("Thm") t nil)
+	  ("eq*" "Insert equation* env" ""
+	   cdlatex-environment("equation*") t nil)
+	  ("pf" "Insert proof env" ""
+	   cdlatex-environment("ycwpf") t nil)
+	  ("unj" "Insert u^n_j"
+	   "u^{n?}_{j}"
+	   cdlatex-position-cursor nil nil t)
+	  ("enj" "Insert e^n_j"
+	   "e^{n?}_{j}"
+	   cdlatex-position-cursor nil nil t)
+	  ("mat" "Insert matrix env"
+	   "\\begin{matrix}?\\end{matrix}"
+	   cdlatex-position-cursor nil nil t)
+	  ("mat(" "Insert matrix env"
+	   "\\begin{pmatrix}?\\end{pmatrix}"
+	   cdlatex-position-cursor nil nil t)))
+  (setq cdlatex-math-symbol-alist
+	'((?< ("\\leftarrow" "\\longleftarrow" "\\preccurlyeq"))
+	  (?> ("\\leftarrow" "\\longleftarrow" "\\succcurlyeq"))
+	  (?2 ("^{?}_{}"))))
+  (setq cdlatex-math-modify-alist
+	'(( ?s    "\\mathsf"            "\\textsf" t   nil nil )
+	  ( ?f    "\\mathfrac"            "\\textfrac" t   nil nil ))))

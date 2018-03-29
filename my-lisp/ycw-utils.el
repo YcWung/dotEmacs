@@ -11,8 +11,8 @@
 		(cdr company-backends)))))
 
 (defun ycw:company-yas-init(&rest backends)
-  (define-key global-map
-    (kbd "<C-tab>") 'company-complete)
+  ;; (define-key global-map
+  ;;   (kbd "<C-tab>") 'company-complete)
   (require 'yasnippet)
   (yas-reload-all)
   (yas-minor-mode-on)
