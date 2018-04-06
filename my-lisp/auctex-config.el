@@ -87,6 +87,7 @@
 
 (defun ycw:latex-goto-preamble-end()
   (interactive)
+  (push-mark)
   (TeX-home-buffer)
   (goto-char (or (re-search-forward "^[%[:blank:]]+Text[%[:blank:]]+$" nil t)
 		 (re-search-backward "^[%[:blank:]]+Text[%[:blank:]]+$" nil t)
@@ -135,7 +136,12 @@
   (setq cdlatex-math-symbol-alist
 	'((?< ("\\leftarrow" "\\longleftarrow" "\\preccurlyeq"))
 	  (?> ("\\leftarrow" "\\longleftarrow" "\\succcurlyeq"))
+	  (?+ ("\\oplus" "^{\\dagger}"))
 	  (?2 ("^{?}_{}"))))
   (setq cdlatex-math-modify-alist
 	'(( ?s    "\\mathsf"            "\\textsf" t   nil nil )
-	  ( ?f    "\\mathfrac"            "\\textfrac" t   nil nil ))))
+	  ( ?f    "\\mathfrak"            "\\textfrak" t   nil nil ))))
+;; not work. use C-c C-n
+(defun ycw:refresh-labels()
+  (interactive)
+  (LaTeX-add-labels))

@@ -74,17 +74,17 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Self-defined %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % general sets, spaces,
-\DeclareMathOperator{\QQ}{\mathbb{Q}}
-\DeclareMathOperator{\CC}{\mathbb{C}}
-\DeclareMathOperator{\RR}{\mathbb{R}}
-\DeclareMathOperator{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
 \DeclareMathOperator{\range}{\mathrm{\mathbf{range}}}
 \DeclareMathOperator{\rank}{\mathrm{rank}}
 \DeclareMathOperator{\graph}{\mathrm{graph}}
 % geometry
-\DeclareMathOperator{\RP}{\mathbb{RP}}
-\DeclareMathOperator{\mfdSt}{\mathrm{\mathbf{St}}}
-\DeclareMathOperator{\vfld}{\mathsf{X}}
+\newcommand{\RP}{\mathbb{RP}}
+\newcommand{\mfdSt}{\mathrm{\mathbf{St}}}
+\newcommand{\vfX}{\mathsf{X}}
 % algebra
 \DeclareMathOperator{\id}{\mathrm{\mathbf{id}}}
 \DeclareMathOperator{\coker}{\mathrm{Coker}}
@@ -105,6 +105,9 @@
 \DeclareMathOperator\Int{\mathrm{Int}}
 \DeclareMathOperator\Out{\mathrm{Out}}
 \newcommand{\algA}{\mathfrak{A}}
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\eigsp}{\mathcal{E}}
+\DeclareMathOperator{\codim}{codim}
 % matrix
 \DeclareMathOperator{\tr}{tr}
 \NewDocumentCommand{\tridiagm}{O{4}>{\SplitArgument{2}{|}}m}{\ycwtridiagm{#1}#2}
@@ -169,8 +172,10 @@
 \NewDocumentCommand{\goal}{m}{
   {\color{cyan}
     \makebox[0ex][l]{\ \,\color{orange}\it gl}
-    \mbox{$\shortmid\!=\!=\!\!\!>\!\!\!>\!\!\!>$} } {\color{Orange}#1}}
+    \mbox{$\shortmid\!=\!=\!\!\!\rhd$} } {\color{Orange}#1}}
 \NewDocumentCommand{\dued}{m}{{\color{red}\uline{Deadline: #1}}}
+\NewDocumentCommand{\tactic}{D<>{Idea}O{Proof}}{#1 of #2}
+% \NewDocumentCommand{\tactic}{m}{\uline{Solution #1}}
 % Lie alg
 \newcommand\liegl{\mathfrak{gl}}
 \newcommand\liesl{\mathfrak{sl}}
@@ -187,6 +192,12 @@
 \newcommand\lieb{\mathfrak{b}}
 \newcommand\liec{\mathfrak{c}}
 \newcommand\liem{\mathfrak{m}}
+\NewDocumentCommand{\liegln}{O{n} O{\CC}}{\liegl(#1,#2)}
+\NewDocumentCommand{\liesln}{O{n} O{\CC}}{\liesl(#1,#2)}
+\NewDocumentCommand{\lietn}{O{n} O{\CC}}{\liet(#1,#2)}
+\NewDocumentCommand{\lienn}{O{n} O{\CC}}{\lien(#1,#2)}
+\NewDocumentCommand{\liedn}{O{n} O{\CC}}{\lied(#1,#2)}
+\NewDocumentCommand{\liegg}{O{}}{[\lieg_{#1},\lieg_{#1}]}
 \newcommand\lieA{\mathsf{A}}
 \newcommand\lieB{\mathsf{B}}
 \newcommand\lieC{\mathsf{C}}
@@ -194,7 +205,6 @@
 \DeclareMathOperator\ad{\mathrm{ad}}
 \DeclareMathOperator\Der{\mathrm{Der}}
 \newcommand\formB{\mathcal{B}}
-\DeclareMathOperator{\Rad}{Rad}
 % Lie group
 \DeclareMathOperator{\LieGL}{GL}
 \DeclareMathOperator{\LieSE}{SE}
@@ -222,7 +232,13 @@
 \DeclareMathOperator{\opLag}{\mathcal{L}}
 \DeclareMathOperator{\symFr}{\overrightarrow{\mathcal{F}}}
 \DeclareMathOperator{\symFrs}{\mathfrak{F}}
-\NewDocumentCommand{\tactic}{D<>{Idea}O{Proof}}{#1 of #2}
+\DeclareMathOperator{\co}{co}
+\DeclareMathOperator{\st}{s.t.}
+\DeclareMathOperator{\expt}{ex}
+\DeclareMathOperator*{\argmin}{Arg\,min}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\Epi}{Epi}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Text %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
