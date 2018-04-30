@@ -127,6 +127,18 @@
 	  ("enj" "Insert e^n_j"
 	   "e^{n?}_{j}"
 	   cdlatex-position-cursor nil nil t)
+	  ("b(" "Insert big()"
+	   "\\bigl(?\\bigr)"
+	   cdlatex-position-cursor nil nil t)
+	  ("B(" "Insert Big()"
+	   "\\Bigl(?\\Bigr)"
+	   cdlatex-position-cursor nil nil t)
+	  ("bb(" "Insert bigg()"
+	   "\\biggl(?\\biggr)"
+	   cdlatex-position-cursor nil nil t)
+	  ("BB(" "Insert Bigg()"
+	   "\\Biggl(?\\Biggr)"
+	   cdlatex-position-cursor nil nil t)
 	  ("mat" "Insert matrix env"
 	   "\\begin{matrix}?\\end{matrix}"
 	   cdlatex-position-cursor nil nil t)
@@ -135,9 +147,12 @@
 	   cdlatex-position-cursor nil nil t)))
   (setq cdlatex-math-symbol-alist
 	'((?< ("\\leftarrow" "\\longleftarrow" "\\preccurlyeq"))
-	  (?> ("\\leftarrow" "\\longleftarrow" "\\succcurlyeq"))
-	  (?+ ("\\oplus" "^{\\dagger}"))
-	  (?2 ("^{?}_{}"))))
+	  (?> ("\\mapsto" "\\longrightarrow" "\\succcurlyeq"))
+	  (?U ("\\bigcup" "\\bigsqcup"))
+	  (?+ ("\\oplus" "^{\\dag}"))
+	  (?g ("\\gamma" "\\lieg"))
+	  (?* ("\\times" "\\otimes"))
+	  (?2 ("_{?}^{}" "^{?}_{}"))))
   (setq cdlatex-math-modify-alist
 	'(( ?s    "\\mathsf"            "\\textsf" t   nil nil )
 	  ( ?f    "\\mathfrak"            "\\textfrak" t   nil nil ))))

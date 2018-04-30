@@ -1,0 +1,76 @@
+# -*- mode: snippet -*-
+# name: ycw-gadfly
+# key: gplot
+# --
+module Ana   # data analysis
+export gp    # graphics plot
+
+using Gadfly
+import Colors
+
+function gp(filename, layers...; params...)
+    params = Dict(params); lys = []; plargs = []; legend = ["",[],[]];
+    for ly in layers
+        N = 0; lyargs = []; lykargs = []; sargs = [];
+        for arg in ly; if typeof(arg)<:Pair; break; else N=N+1 end end
+        if N==0 continue
+        elseif N==1 lykargs = [:y=>ly[1]]
+        elseif N==2 lykargs = [:x=>ly[1],:y=>ly[2]]
+        else lykargs = [:x=>ly[1],:y=>ly[2]]
+            sargs = [sargs..., :default_color=>parse(Colors.Colorant, ly[3])]
+            legend[3] = [legend[3]...,ly[3]]
+        end
+        let kargs = Dict(ly[N+1:end])
+            lyargs = [lyargs..., Geom.line]
+            if haskey(kargs, :linestyle)
+                sargs = [sargs..., :line_style=>kargs[:linestyle]]
+            end
+            if haskey(kargs, :label)
+                legend[2] = [legend[2]..., kargs[:label]]
+            else
+                legend[2] = [legend[2]..., ""]
+            end
+        end
+        lys = [lys..., layer(lyargs..., style(;sargs...); lykargs...)];
+    end
+    if haskey(params, :xlabel)
+        plargs = [plargs..., Guide.XLabel(params[:xlabel])]
+    else
+        plargs = [plargs..., Guide.XLabel("")]
+    end
+    if haskey(params, :ylabel)
+        plargs = [plargs..., Guide.YLabel(params[:ylabel])]
+    else
+        plargs = [plargs..., Guide.YLabel("")]
+    end
+    if haskey(params, :title)
+        plargs = [plargs..., Guide.Title(params[:title])]
+    end
+    if haskey(params, :xticks)
+        plargs = [plargs..., Guide.xticks(ticks=[params[:xticks]...])]
+    end
+    if haskey(params, :yticks)
+        plargs = [plargs..., Guide.yticks(ticks=[params[:yticks]...])]
+    end
+    let args = []
+        if haskey(params, :xmax); args = [args..., :xmax=>params[:xmax]] end
+        if haskey(params, :xmin); args = [args..., :xmin=>params[:xmin]] end
+        if haskey(params, :ymax); args = [args..., :ymax=>params[:ymax]] end
+        if haskey(params, :ymin); args = [args..., :ymin=>params[:ymin]] end
+        if length(args) != 0
+            plargs = [plargs..., Coord.cartesian(;args...)]
+        end
+    end
+    if haskey(params, :legend)
+        legend[1] = params[:legend]
+        plargs = [plargs..., Guide.manual_color_key(legend...)]
+    end
+    Gadfly.push_theme(style(background_color=colorant"white",
+                            panel_fill = colorant"white"));
+    pl = Gadfly.plot(lys..., plargs...);
+    draw(PDF(filename*".pdf"), pl);
+    display(pl);
+    Gadfly.pop_theme();
+    return
+end
+end

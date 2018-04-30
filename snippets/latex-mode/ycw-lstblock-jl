@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: ycw-lstblock-jl
+# key: jl
+# --
+\begin{lstlisting}[language=Julia, title={$1}]
+$0
+\end{lstlisting}

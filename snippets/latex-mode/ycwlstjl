@@ -1,6 +1,6 @@
 # -*- mode: latex -*-
 # name: ycwlstjl
-# key: ycwlstjl
+# key: jldef
 # --
 \lstdefinelanguage{Julia}%
   {keywordsprefix=\\@,

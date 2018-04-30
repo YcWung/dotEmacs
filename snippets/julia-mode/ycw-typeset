@@ -1,0 +1,49 @@
+# -*- mode: snippet -*-
+# name: ycw-typeset
+# key: typeset
+# --
+module Typeset
+macro disp(ex)
+  # return :(display($ex));
+  local msg=string(ex)*" =";
+  local val = esc(ex);
+  return quote
+    println($msg);
+    display($val);
+  end;
+end
+function prtmat(A, digits=5)
+  "Print a matrix into LaTeX format"
+  m,n = size(A);
+  println("\\\\left[\\\\begin{array}{$("c"^n)}");
+  for i=1:m
+    print(" $(signif(A[i,1],digits))");
+    for j=2:n print(" & $(N(A[i,j],digits))"); end
+    println("\\\\\\\\");
+  end
+  println("\\\\end{array}\\\\right]");
+end
+function prttab(cns, A, digits=5)
+  "Print a matrix into a table with column names in LaTeX format"
+  m,n = size(A);
+  println("\\\\begin{tabular}{$("c"^n)} "); println("\\\\hline");
+  print(cns[1]); for j=2:n print(" & $(cns[j])"); end;
+  println("\\\\\\\\"); println("\\\\hline");
+  for i=1:m
+    print("$(N(A[i,1],digits))");
+    for j=2:n print(" & $(N(A[i,j],digits))"); end
+    println("\\\\\\\\");
+  end
+  println("\\\\hline"); println("\\\\end{tabular}");
+end
+function N(x,digits)
+  "Fancy print a number w.r.t. its type."
+  s = "$x";
+  if isa(x, AbstractFloat)
+    s = "$(signif(Float64(x),digits))";
+  elseif isa(x, Complex)
+    s = "$(N(real(x),digits))+$(N(imag(x),digits))i";
+  end
+  return s;
+end
+end

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ycw-op-function-declare
+# key: opfn
+# --
+${1:f}:\RR^{n}\to\RR\cup\{+\infty\}

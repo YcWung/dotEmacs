@@ -1,12 +1,12 @@
 # -*- mode: snippet -*-
-# name: ycwdoc-note-lua
-# key: luanote
+# name: ycwdoc-hw-lua
+# key: luahw
 # --
-\documentclass[${1:a5paper,12pt}]{${2:report}}
+\documentclass[${1:a4paper,12pt}]{${2:article}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Title %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{${3:Notes of}}
-\author{${4:Yongchao Wang}}
+\title{${3:HW}}
+\author{${4:Yongchao Wang, 117071910023}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{geometry}
@@ -34,8 +34,8 @@
 \usepackage{luacode}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Layouts %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\geometry{left=${5:1em}, right=${6:$5}, top=${7:1em}, bottom=${8:$7},
-  headsep=0em, footskip=0em}
+\geometry{left=${5:2cm}, right=${6:$5}, top=${7:2.5cm}, bottom=${8:$7}}
+%  headsep=0em, footskip=0em
 \hypersetup{bookmarks=true, bookmarksnumbered=true,
   colorlinks=true, linkcolor=Plum}
 \pagestyle{fancy}
@@ -47,7 +47,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Theorems %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \theoremstyle{plain}
-\newtheorem{Thm}{Theorem}[chapter]
+\newtheorem{Thm}{Theorem}
 \newtheorem{Lem}[Thm]{Lemma}
 \newtheorem{Cor}[Thm]{Corollary}
 \newtheorem{Prop}[Thm]{Proposition}
@@ -83,7 +83,6 @@
 \DeclareMathOperator{\range}{\mathrm{\mathbf{range}}}
 \DeclareMathOperator{\rank}{\mathrm{rank}}
 \DeclareMathOperator{\graph}{\mathrm{graph}}
-\newcommand\fnl{\mathcal{F}}
 % geometry
 \newcommand{\RP}{\mathbb{RP}}
 \newcommand{\mfdSt}{\mathrm{\mathbf{St}}}
@@ -92,7 +91,6 @@
 \DeclareMathOperator{\id}{\mathrm{\mathbf{id}}}
 \DeclareMathOperator{\coker}{\mathrm{Coker}}
 \DeclareMathOperator{\End}{\mathrm{End}}
-\DeclareMathOperator{\Mor}{\mathrm{Mor}}
 \DeclareMathOperator{\Ab}{\mathrm{\mathbf{A\!b}}}
 \DeclareMathOperator{\Ext}{\mathrm{Ext}}
 \DeclareMathOperator{\Tor}{\mathrm{Tor}}
@@ -112,9 +110,6 @@
 \DeclareMathOperator{\Rad}{Rad}
 \DeclareMathOperator{\eigsp}{\mathcal{E}}
 \DeclareMathOperator{\codim}{codim}
-\DeclareMathOperator{\ev}{ev}
-\DeclareMathOperator{\wdspan}{span}
-\DeclareMathOperator{\Span}{span}
 % matrix
 \DeclareMathOperator{\tr}{tr}
 \NewDocumentCommand{\tridiagm}{O{4}>{\SplitArgument{2}{|}}m}{\ycwtridiagm{#1}#2}
@@ -152,9 +147,8 @@
 \DeclareMathOperator{\wdgrad}{grad}
 \DeclareMathOperator{\Diff}{\mathbf{D}}
 \newcommand{\diff}{\mathrm{d}}
-\NewDocumentCommand{\dd}{O{} >{\SplitArgument{1}{|}}m}{\ycwdd{#1}#2{}}
-\NewDocumentCommand{\pp}{O{} >{\SplitArgument{2}{|}}m}{
-  \ycwdd[\partial]{#1}#2{}}
+\NewDocumentCommand{\dd}{O{} >{\SplitArgument{1}{|}}m}{\ycwdd{#1}#2}
+\NewDocumentCommand{\pp}{O{} >{\SplitArgument{2}{|}}m}{\ycwdd[\partial]{#1}#2}
 \NewDocumentCommand{\ycwdd}{O{\mathrm{d}} m m m m}{
   \frac{{#1}^{#2}\IfValueTF{#4}{#3}{}}{
     {#1}\IfValueTF{#4}{
@@ -177,19 +171,13 @@
 \font\sixly=lasy6
 \makeatother
 \definecolor{lgray}{gray}{0.8}
-% \NewDocumentCommand{\goal}{m}{
-%   {\color{cyan}
-%     \makebox[0ex][l]{\ \,\color{orange}\it gl}
-%     \mbox{$\shortmid\!=\!=\!\!\!\rhd$} } {\color{Orange}#1}}
-\NewDocumentCommand{\goal}{O{} m}{
-  {\color{cyan}$\vdash$\{\color{orange}\tt GOAL$_\text{#1}$}$\to$}
-  {\color{Orange}#2}}
+\NewDocumentCommand{\goal}{m}{
+  {\color{cyan}
+    \makebox[0ex][l]{\ \,\color{orange}\it gl}
+    \mbox{$\shortmid\!=\!=\!\!\!\rhd$} } {\color{Orange}#1}}
 \NewDocumentCommand{\dued}{m}{{\color{red}\uline{Deadline: #1}}}
-\NewDocumentCommand{\tactic}{D<>{Idea}O{Proof}}{#1 of #2}
-% \NewDocumentCommand{\tactic}{m}{\uline{Solution #1}}
-\newcommand{\obs}[1]{{\color{red}\texttt{OBSERVE:}} #1}
-\NewDocumentCommand{\want}{}{{\color{orange}\tt WANT}}
-\NewDocumentCommand{\idea}{}{{\color{orange}\tt IDEA}}
+% \NewDocumentCommand{\tactic}{D<>{Idea}O{Proof}}{#1 of #2}
+\NewDocumentCommand{\tactic}{m}{\uline{Solution #1}}
 % Lie alg
 \newcommand\liegl{\mathfrak{gl}}
 \newcommand\liesl{\mathfrak{sl}}
@@ -197,13 +185,6 @@
 \newcommand\lieo{\mathfrak{o}}
 \newcommand\liesp{\mathfrak{sp}}
 \newcommand\lieg{\mathfrak{g}}
-\NewDocumentCommand{\liegln}{O{n} O{\CC}}{\liegl(#1,#2)}
-\NewDocumentCommand{\liesln}{O{n} O{\CC}}{\liesl(#1,#2)}
-\NewDocumentCommand{\lietn}{O{n} O{\CC}}{\liet(#1,#2)}
-\NewDocumentCommand{\lienn}{O{n} O{\CC}}{\lien(#1,#2)}
-\NewDocumentCommand{\liedn}{O{n} O{\CC}}{\lied(#1,#2)}
-\NewDocumentCommand{\liegg}{O{}}{[\lieg_{#1},\lieg_{#1}]}
-\NewDocumentCommand{\llie}{O{g}}{[\mathfrak{#1},\mathfrak{#1}]}
 \newcommand\lieh{\mathfrak{h}}
 \newcommand\liek{\mathfrak{k}}
 \newcommand\liet{\mathfrak{t}}
@@ -213,7 +194,12 @@
 \newcommand\lieb{\mathfrak{b}}
 \newcommand\liec{\mathfrak{c}}
 \newcommand\liem{\mathfrak{m}}
-\newcommand\lies{\mathfrak{s}}
+\NewDocumentCommand{\liegln}{O{n} O{\CC}}{\liegl(#1,#2)}
+\NewDocumentCommand{\liesln}{O{n} O{\CC}}{\liesl(#1,#2)}
+\NewDocumentCommand{\lietn}{O{n} O{\CC}}{\liet(#1,#2)}
+\NewDocumentCommand{\lienn}{O{n} O{\CC}}{\lien(#1,#2)}
+\NewDocumentCommand{\liedn}{O{n} O{\CC}}{\lied(#1,#2)}
+\NewDocumentCommand{\liegg}{O{}}{[\lieg_{#1},\lieg_{#1}]}
 \newcommand\lieA{\mathsf{A}}
 \newcommand\lieB{\mathsf{B}}
 \newcommand\lieC{\mathsf{C}}
@@ -221,7 +207,6 @@
 \DeclareMathOperator\ad{\mathrm{ad}}
 \DeclareMathOperator\Der{\mathrm{Der}}
 \newcommand\formB{\mathcal{B}}
-\DeclareMathOperator{\Rad}{Rad}
 % Lie group
 \DeclareMathOperator{\LieGL}{GL}
 \DeclareMathOperator{\LieSE}{SE}
@@ -259,7 +244,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Text %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-% \maketitle
+\maketitle
 % \tableofcontents
 % \input{pre.tex}
 $0

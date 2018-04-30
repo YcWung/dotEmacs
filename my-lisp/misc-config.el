@@ -15,7 +15,37 @@
   )
 
 ;; Julia
-(eval-after-load "jl" '(ycw:julia-init))
+;; (eval-after-load "jl" '(ycw:julia-init))
+;; (eval-after-load "jl"
+;;   (lambda()
+;;     (require 'julia-mode)
+;;     (add-hook 'julia-mode-hook 'ycw:julia-mode-setup)))
+(add-hook 'julia-mode-hook 'ycw:julia-mode-setup)
+(defun ycw:julia-mode-setup()
+  (cond ((eq system-type 'windows-nt)
+  	 (progn
+	   (setq ycw:julia-home
+		 "d:/Portable/Calculate/JuliaPro-0.6.2.2/Julia-0.6.2/bin")
+	   (setenv "PATH"
+		   (concat ycw:julia-home ";" (getenv "PATH")))
+	   (add-to-list 'exec-path ycw:julia-home)
+	   ;; (setq explicit-shell-file-name
+	   ;; 	 "D:/Portable/Misc/babun/cygwin/bin/bash.exe")
+	   ;; (setq shell-file-name explicit-shell-file-name)
+	   (add-to-list 'exec-path "D:/Portable/Misc/babun/cygwin/bin")
+	   )))
+  ;; (require 'julia-repl)
+  ;; (julia-repl-mode)
+  ;; (julia-repl-set-executable (concat ycw:julia-home "/julia.exe"))
+  (require 'julia-shell)
+  (define-key julia-mode-map (kbd "C-c C-c") 'julia-shell-run-region-or-line)
+  (define-key julia-mode-map (kbd "C-c C-s") 'julia-shell-save-and-go)
+  ;; (setq julia-shell-program
+  ;; 	"D:\\Portable\\Calculate\\Julia-0.6.0\\bin\\julia.exe")
+  (ycw:company-yas-init)
+  (ycw:append-backward-to-company-initial-backend
+   'company-keywords 'company-dabbrev 'company-files))
+
 (defun ycw:julia-init()
   ;; ESS
   (require 'ess-site)
