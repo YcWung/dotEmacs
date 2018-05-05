@@ -39,6 +39,8 @@
   ;; (LaTeX-math-mode)
   (define-key global-map
     (kbd "C-c p e") 'ycw:latex-goto-preamble-end)
+  (define-key global-map
+    (kbd "C-c e c") 'ycw:edit-auctex-config)
   (LaTeX-add-environments
    '("Thm" LaTeX-env-label)
    '("Rfm" LaTeX-env-label)
@@ -160,3 +162,8 @@
 (defun ycw:refresh-labels()
   (interactive)
   (LaTeX-add-labels))
+
+;; edit this file
+(defun ycw:edit-auctex-config()
+  (interactive)
+  (find-file (concat (getenv "HOME") "/.emacs.d/my-lisp/auctex-config.el")))

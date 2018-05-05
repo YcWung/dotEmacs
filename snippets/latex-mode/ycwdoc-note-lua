@@ -32,10 +32,12 @@
 \usepackage{xparse}
 \usepackage{ifthen}
 \usepackage{luacode}
+\usepackage{cases}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Layouts %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \geometry{left=${5:1em}, right=${6:$5}, top=${7:1em}, bottom=${8:$7},
   headsep=0em, footskip=0em}
+% \geometry{left=2.2cm, right=2.2cm, top=2.5cm, bottom=2.5cm}
 \hypersetup{bookmarks=true, bookmarksnumbered=true,
   colorlinks=true, linkcolor=Plum}
 \pagestyle{fancy}
@@ -47,7 +49,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Theorems %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \theoremstyle{plain}
-\newtheorem{Thm}{Theorem}[chapter]
+\newtheorem{Thm}{Theorem}[section]
 \newtheorem{Lem}[Thm]{Lemma}
 \newtheorem{Cor}[Thm]{Corollary}
 \newtheorem{Prop}[Thm]{Proposition}
@@ -80,6 +82,8 @@
 \newcommand{\CC}{\mathbb{C}}
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\Sym}{\mathbb{S}}
+\newcommand{\matS}{\mathbb{S}}
 \DeclareMathOperator{\range}{\mathrm{\mathbf{range}}}
 \DeclareMathOperator{\rank}{\mathrm{rank}}
 \DeclareMathOperator{\graph}{\mathrm{graph}}
@@ -117,6 +121,7 @@
 \DeclareMathOperator{\Span}{span}
 % matrix
 \DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\diag}{diag}
 \NewDocumentCommand{\tridiagm}{O{4}>{\SplitArgument{2}{|}}m}{\ycwtridiagm{#1}#2}
 \NewDocumentCommand{\ycwtridiagm}{m m m m}{
   \newcommand\dotfst{\ifthenelse{\equal{#2}{}}{\relax}{\ddots}}
@@ -177,19 +182,25 @@
 \font\sixly=lasy6
 \makeatother
 \definecolor{lgray}{gray}{0.8}
+\NewDocumentCommand{\dued}{m}{{\color{red}\uline{Deadline: #1}}}
+\NewDocumentCommand{\tactic}{D<>{Idea}O{Proof}}{#1 of #2}
+% \NewDocumentCommand{\tactic}{m}{\uline{Solution #1}}
 % \NewDocumentCommand{\goal}{m}{
 %   {\color{cyan}
 %     \makebox[0ex][l]{\ \,\color{orange}\it gl}
 %     \mbox{$\shortmid\!=\!=\!\!\!\rhd$} } {\color{Orange}#1}}
 \NewDocumentCommand{\goal}{O{} m}{
-  {\color{cyan}$\vdash$\{\color{orange}\tt GOAL$_\text{#1}$}$\to$}
+  {\color{cyan}\$\vdash\${\color{Orange}\tt GOAL\$_\text{#1}\$}\$\to\$}
   {\color{Orange}#2}}
-\NewDocumentCommand{\dued}{m}{{\color{red}\uline{Deadline: #1}}}
-\NewDocumentCommand{\tactic}{D<>{Idea}O{Proof}}{#1 of #2}
-% \NewDocumentCommand{\tactic}{m}{\uline{Solution #1}}
-\newcommand{\obs}[1]{{\color{red}\texttt{OBSERVE:}} #1}
-\NewDocumentCommand{\want}{}{{\color{orange}\tt WANT}}
-\NewDocumentCommand{\idea}{}{{\color{orange}\tt IDEA}}
+\NewDocumentCommand{\obs}{O{}m}{{\color{Green}\tt OBSERVE\$_\text{#1}
+    \color{cyan}\sphericalangle\$}{\color{cyan}:}
+  {\color{Green}#2}}
+\NewDocumentCommand{\want}{O{}m}{{\color{Orange}\tt WANT\$_\text{#1}
+    \color{cyan}:\$}
+  {\color{Orange}#2}}
+\NewDocumentCommand{\idea}{O{}m}{{\color{Green}\tt IDEA\$_\text{#1}
+    \color{cyan}\circledast\$} {\color{cyan}:}
+  {\color{Green}#2}}
 % Lie alg
 \newcommand\liegl{\mathfrak{gl}}
 \newcommand\liesl{\mathfrak{sl}}
@@ -221,7 +232,6 @@
 \DeclareMathOperator\ad{\mathrm{ad}}
 \DeclareMathOperator\Der{\mathrm{Der}}
 \newcommand\formB{\mathcal{B}}
-\DeclareMathOperator{\Rad}{Rad}
 % Lie group
 \DeclareMathOperator{\LieGL}{GL}
 \DeclareMathOperator{\LieSE}{SE}
@@ -252,10 +262,12 @@
 \DeclareMathOperator{\co}{co}
 \DeclareMathOperator{\st}{s.t.}
 \DeclareMathOperator{\expt}{ex}
-\DeclareMathOperator*{\argmin}{Arg\,min}
+\DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator{\dom}{dom}
 \DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\cconv}{\overline{conv}}
 \DeclareMathOperator{\Epi}{Epi}
+\newcommand{\opF}{\mathcal{F}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Text %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
