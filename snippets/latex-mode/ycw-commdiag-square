@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: ycw-commdiag-square
+# key: cdsq
+# --
+\begin{equation*}
+\begin{tikzcd}
+  $1 \ar[r,"$5"] \ar[d, "$7"]
+  & $2 \ar[d,"$8"] \\\\
+  $3 \ar[r, "$6"]
+  & $4
+\end{tikzcd}
+\end{equation*}

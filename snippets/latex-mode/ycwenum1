@@ -1,6 +1,6 @@
 # -*- mode: latex -*-
 # name: ycwenum1
-# key: ycwenum1
+# key: enum1
 # --
 \begin{enumerate}
   \renewcommand{\labelenumi}{${1:{\rm(\roman{enumi})}}}

@@ -82,6 +82,7 @@
 \newcommand{\CC}{\mathbb{C}}
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
 \newcommand{\Sym}{\mathbb{S}}
 \newcommand{\matS}{\mathbb{S}}
 \DeclareMathOperator{\range}{\mathrm{\mathbf{range}}}
@@ -92,6 +93,8 @@
 \newcommand{\RP}{\mathbb{RP}}
 \newcommand{\mfdSt}{\mathrm{\mathbf{St}}}
 \newcommand{\vfX}{\mathsf{X}}
+\newcommand{\Lie}{\pounds}
+\newcommand{\covd}{\nabla}
 % algebra
 \DeclareMathOperator{\id}{\mathrm{\mathbf{id}}}
 \DeclareMathOperator{\coker}{\mathrm{Coker}}
@@ -119,6 +122,8 @@
 \DeclareMathOperator{\ev}{ev}
 \DeclareMathOperator{\wdspan}{span}
 \DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\algHom}{Hom}
+\newcommand{\epito}{\twoheadrightarrow}
 % matrix
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\diag}{diag}
@@ -155,7 +160,7 @@
 \newcommand{\diagm}[1]{\luadirect{diagm(\luastringN{#1})}}
 % differential calculus
 \DeclareMathOperator{\wdgrad}{grad}
-\DeclareMathOperator{\Diff}{\mathbf{D}}
+\newcommand{\Diff}{\mathbf{D}}
 \newcommand{\diff}{\mathrm{d}}
 \NewDocumentCommand{\dd}{O{} >{\SplitArgument{1}{|}}m}{\ycwdd{#1}#2{}}
 \NewDocumentCommand{\pp}{O{} >{\SplitArgument{2}{|}}m}{
@@ -192,14 +197,29 @@
 \NewDocumentCommand{\goal}{O{} m}{
   {\color{cyan}\$\vdash\${\color{Orange}\tt GOAL\$_\text{#1}\$}\$\to\$}
   {\color{Orange}#2}}
-\NewDocumentCommand{\obs}{O{}m}{{\color{Green}\tt OBSERVE\$_\text{#1}
+\NewDocumentCommand{\obs}{O{}m}{{\color{Green}\tt OBSERVATION\$_\text{#1}
     \color{cyan}\sphericalangle\$}{\color{cyan}:}
   {\color{Green}#2}}
 \NewDocumentCommand{\want}{O{}m}{{\color{Orange}\tt WANT\$_\text{#1}
     \color{cyan}:\$}
   {\color{Orange}#2}}
+\NewDocumentCommand{\ques}{O{}m}{{\color{Orange}\tt Q\$_\text{#1}
+    \color{cyan}?:\$}
+  {\color{Orange}#2}}
 \NewDocumentCommand{\idea}{O{}m}{{\color{Green}\tt IDEA\$_\text{#1}
-    \color{cyan}\circledast\$} {\color{cyan}:}
+    \color{cyan}^\circledast\$} {\color{cyan}:}
+  {\color{Green}#2}}
+\NewDocumentCommand{\csdr}{O{}m}{{\color{Green}\tt CONSIDER\$_\text{#1}
+    \color{cyan}^\circledast\$} {\color{cyan}:}
+  {\color{Green}#2}}
+\NewDocumentCommand{\app}{O{}m}{{\color{Green}\tt APPLY\$_\text{#1}
+    \color{cyan}^\lambda\$} {\color{cyan}:}
+  {\color{Green}#2}}
+\NewDocumentCommand{\asst}{O{}m}{{\color{Orange}\tt ASSERT\$_\text{#1}
+    \color{cyan}:\$}
+  {\color{Orange}#2}}
+\NewDocumentCommand{\assm}{O{}m}{{\color{Green}\tt ASSUME\$_\text{#1}$}
+  {\color{cyan}:}
   {\color{Green}#2}}
 % Lie alg
 \newcommand\liegl{\mathfrak{gl}}
@@ -234,6 +254,7 @@
 \newcommand\formB{\mathcal{B}}
 % Lie group
 \DeclareMathOperator{\LieGL}{GL}
+\newcommand{\LieSL}{\mathrm{SL}}
 \DeclareMathOperator{\LieSE}{SE}
 \DeclareMathOperator{\LieSO}{SO}
 \DeclareMathOperator{\LieO}{O}

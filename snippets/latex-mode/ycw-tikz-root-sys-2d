@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: ycw-tikz-root-sys-2d
+# key: rtsys
+# --
+\begin{tikzpicture}
+  \newcommand{\rt}[1]{\draw[->] (0,0) -- (#1);}
+  \rt{${1:1,0}} $0
+\end{tikzpicture}
