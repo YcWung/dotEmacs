@@ -3,6 +3,6 @@
 # key: case
 # --
 \begin{cases}
-  $1 ,& $2 \\
-  $3 ,& $4
+  $1 ,\\quad& $2 \\\\
+  $3 ,& \\text{otherwise}
 \end{cases}

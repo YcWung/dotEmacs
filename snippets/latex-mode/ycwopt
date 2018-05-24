@@ -1,10 +1,8 @@
 # -*- mode: snippet -*-
 # name: ycwopt
-# key: ycwopt
+# key: opt
 # --
-\begin{equation*}
 \begin{aligned}
   \min\quad &${1:f_0(x)}\\\\
   \st\quad &${2:f_j(x)\leq b_j,\ j=1,\dots,m}\\\\
 \end{aligned}
-\end{equation*}

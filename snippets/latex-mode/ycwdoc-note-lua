@@ -107,7 +107,7 @@
 \DeclareMathOperator{\im}{\mathrm{Im}}
 \DeclareMathOperator{\Ccat}{\mathcal{C}}
 \DeclareMathOperator{\Set}{\mathcal{S}\mathrm{et}}
-\newcommand{\norm}[1]{\Vert #1 \Vert}
+\newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
 \newcommand{\inn}[2]{\langle #1,#2\rangle}
 \newcommand{\lMod}[1]{#1\text{-}\mathrm{Mod}}
 \newcommand{\rMod}[1]{\mathrm{Mod}\text{-}#1}
@@ -162,7 +162,7 @@
 \DeclareMathOperator{\wdgrad}{grad}
 \newcommand{\Diff}{\mathbf{D}}
 \newcommand{\diff}{\mathrm{d}}
-\NewDocumentCommand{\dd}{O{} >{\SplitArgument{1}{|}}m}{\ycwdd{#1}#2{}}
+\NewDocumentCommand{\dd}{O{} >{\SplitArgument{2}{|}}m}{\ycwdd{#1}#2{}}
 \NewDocumentCommand{\pp}{O{} >{\SplitArgument{2}{|}}m}{
   \ycwdd[\partial]{#1}#2{}}
 \NewDocumentCommand{\ycwdd}{O{\mathrm{d}} m m m m}{
@@ -180,7 +180,7 @@
 \newcommand{\neasy}[1]{{\color{NavyBlue}#1}}
 \newcommand{\note}[1]{{\color{red}#1}}
 \newcommand{\lentry}{{$\blackdiamond$\ }}
-\DeclareMathOperator{\sth}{\Box}
+\DeclareMathOperator{\sth}{{\scriptstyle \Box}}
 \makeatletter
 \newcommand\colorwave[1][BrickRed]{
   \bgroup\markoverwith{\lower3.5\p@\hbox{\sixly \textcolor{#1}{\char58}}}\ULon}
@@ -211,6 +211,9 @@
   {\color{Green}#2}}
 \NewDocumentCommand{\csdr}{O{}m}{{\color{Green}\tt CONSIDER\$_\text{#1}
     \color{cyan}^\circledast\$} {\color{cyan}:}
+  {\color{Green}#2}}
+\NewDocumentCommand{\cstr}{O{}m}{{\color{Green}\tt CONSTRUCTION\$_\text{#1}
+    \color{cyan}^\bullet\$} {\color{cyan}:}
   {\color{Green}#2}}
 \NewDocumentCommand{\app}{O{}m}{{\color{Green}\tt APPLY\$_\text{#1}
     \color{cyan}^\lambda\$} {\color{cyan}:}
@@ -252,6 +255,29 @@
 \DeclareMathOperator\ad{\mathrm{ad}}
 \DeclareMathOperator\Der{\mathrm{Der}}
 \newcommand\formB{\mathcal{B}}
+\begin{luacode*}
+  function droot(lab,pt)
+  --- pt=(n,l2), draw (180*n:sqrt(l2)) ---
+  tp=tex.print;
+  coords=pt:split(",");
+  as=coords[1]:split("/"); an=tonumber(as[1]);
+  if #as==1 then ad=1 else ad=tonumber(as[2]) end
+  a=180*an/ad;
+  l2s=coords[2]:split("/"); l2n=tonumber(l2s[1]);
+  if #l2s==1 then l2d=1 else l2d=tonumber(l2s[2]) end
+  l2=l2n/l2d; l=math.sqrt(l2);
+  tp("\\\\draw[->] (0,0) -- (", a,":",l, ")");
+  if lab~="" then
+  tp("node[")
+  if a<180 and a>0 then tp("above") end
+  if a>180 and a<360 then tp("below") end
+  if a>270 or a<90 then tp(" right") end
+  if a>90 and a<270 then tp(" left") end
+  tp("] {",lab,"}")
+  end
+  tp(";")
+  end
+\end{luacode*}
 % Lie group
 \DeclareMathOperator{\LieGL}{GL}
 \newcommand{\LieSL}{\mathrm{SL}}
@@ -300,4 +326,5 @@ $0
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-engine: luatex
+%%% TeX-master: t
 %%% End:

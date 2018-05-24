@@ -2,7 +2,8 @@
 # name: ycw-tikz-root-sys-2d
 # key: rtsys
 # --
-\begin{tikzpicture}
-  \newcommand{\rt}[1]{\draw[->] (0,0) -- (#1);}
-  \rt{${1:1,0}} $0
+\begin{tikzpicture}[scale=2]
+  \newcommand{\rt}[2][]{\luadirect{droot(\luastringN{#1},\luastringN{#2})}}
+  \fill (0,0) circle[radius=.5pt];
+  \rt[${1:$\alpha$}]{${2:0,1}} $0
 \end{tikzpicture}
