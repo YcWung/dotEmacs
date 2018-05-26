@@ -169,8 +169,8 @@
 	   cdlatex-position-cursor nil nil t)
 	  ))
   (setq cdlatex-math-symbol-alist
-	'((?< ("\\leftarrow" "\\longleftarrow" "\\preccurlyeq"))
-	  (?> ("\\mapsto" "\\longrightarrow" "\\succcurlyeq"))
+	'((?< ("\\leftarrow" "\\xleftarrow[?]" "\\preccurlyeq"))
+	  (?> ("\\mapsto" "\\xrightarrow[?]" "\\succcurlyeq"))
 	  (?U ("\\bigcup" "\\bigsqcup"))
 	  (?+ ("\\oplus" "^{\\dag}"))
 	  (?g ("\\gamma" "\\lieg"))

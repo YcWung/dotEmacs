@@ -4,9 +4,9 @@
 # --
 \begin{equation*}
 \begin{tikzcd}
-  $1 \ar[r,"$5"] \ar[d, "$7"]
-  & $2 \ar[d,"$8"] \\\\
-  $3 \ar[r, "$6"]
-  & $4
+  ${1:Obj.11} \ar[r,"${5:Mor.above}"] \ar[d, "${7:Mor.left}"]
+  & ${2:Obj.12} \ar[d,"${8:Mor.right}"] \\\\
+  ${3:Obj.21} \ar[r, "${6:Mor.below}"]
+  & ${4:Obj.22}
 \end{tikzcd}
 \end{equation*}
