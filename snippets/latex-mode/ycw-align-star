@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: ycw-align-star
+# key: eqa
+# --
+\\begin{align*}
+  $0
+\\end{align*}

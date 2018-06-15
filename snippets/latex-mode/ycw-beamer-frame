@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: ycw-beamer-frame
+# key: frm
+# --
+\\begin{frame}\\frametitle{${1:\\secname}}
+  $0
+\\end{frame}

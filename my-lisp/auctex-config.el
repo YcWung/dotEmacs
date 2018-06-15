@@ -3,6 +3,7 @@
 (setq TeX-save-query nil)
 (setq-default TeX-master nil)
 (setq-default TeX-default-mode 'LaTeX-mode)
+(setq-default TeX-engine 'luatex)
 
 ;; OS-dependent
 (cond ((eq system-type 'windows-nt)
@@ -37,6 +38,7 @@
   (setq reftex-plug-into-AUCTeX t)
   (turn-on-reftex)
   ;; (LaTeX-math-mode)
+  (add-to-list 'LaTeX-clean-intermediate-suffixes "\\..+\\.gnuplot")
   (define-key global-map
     (kbd "C-c p e") 'ycw:latex-goto-preamble-end)
   (define-key global-map
@@ -53,6 +55,7 @@
    '("Exm" LaTeX-env-label))
   (add-to-list 'LaTeX-indent-environment-list '("align*"))
   (add-to-list 'LaTeX-indent-environment-list '("align"))
+  (add-to-list 'LaTeX-indent-environment-list '("array"))
 
   (add-hook
    'find-file-hook
@@ -171,6 +174,9 @@
   (setq cdlatex-math-symbol-alist
 	'((?< ("\\leftarrow" "\\xleftarrow{?}" "\\preccurlyeq"))
 	  (?> ("\\mapsto" "\\xrightarrow{?}" "\\succcurlyeq"))
+	  (?[ ("\\Leftarrow" "\\impliedby"))
+	    (?] ("\\Rightarrow" "\\implies"))
+	  (?= ("\\Leftrightarrow" "\\iff"))
 	  (?U ("\\bigcup" "\\bigsqcup"))
 	  (?+ ("\\oplus" "^{\\dag}"))
 	  (?g ("\\gamma" "\\lieg"))

@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: ycw-pseudo-code
+# key: pseudo
+# --
+\begin{algorithm}[H]
+  \caption{${1:Algorithm Name}}
+  \textbf{Given} $x_0$
+  \begin{algorithmic}[1]
+  % \Procedure{name}{args}\Comment{}\Return
+  % \For {$i=$} \EndFor; \If \EndIf; \State \gets
+  %0
+  \end{algorithmic}
+\end{algorithm}
