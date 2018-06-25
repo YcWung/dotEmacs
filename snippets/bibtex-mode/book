@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: book
+# key: bk
+# --
+@book{${1:label},
+  title={$2},
+  author={$3},
+  year={$4},
+  publisher={$5},
+  doi={$6},
+  url={$7},
+  series={$8},
+  isbn={$9},
+}

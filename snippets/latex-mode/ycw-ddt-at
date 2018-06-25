@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ycw-ddt-at
+# key: dd
+# --
+\\left.\\dd{${1:t}}\\right\\vert_{$1=${2:0}}

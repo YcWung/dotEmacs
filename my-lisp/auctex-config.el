@@ -14,6 +14,7 @@
        (eval-after-load "tex" '(ycw:auctex-macos-init))))
 
 (add-hook 'LaTeX-mode-hook 'ycw:latex-init)
+(add-hook 'bibtex-mode-hook 'ycw:company-yas-init)
 
 (defun ycw:latex-init ()
   ;; cdlatex
@@ -99,6 +100,7 @@
   (setq TeX-source-correlate-mode t)
   (setq TeX-source-correlate-method 'synctex)
   (setq TeX-source-correlate-start-server t)
+  ;; (setq mac-right-option-modifier 'control)
   (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
   ;; -b -g %n %o %b
   (setq TeX-view-program-list
@@ -118,28 +120,8 @@
 (defun ycw:cdlatex-config()
   ;; (add-hook 'cdlatex-tab-hook 'indent-for-tab-command)
   ;; (setq cdlatex-simplify-sub-super-scripts nil)
-  (setq cdlatex-env-alist
-	'(("Def"
-	   "\\begin{Def}\nAUTOLABEL\n?\n\\end{Def}\n" nil)
-	  ("Thm"
-	   "\\begin{Thm}\nAUTOLABEL\n?\n\\end{Thm}\n" nil)
-	  ("equation*"
-	   "\\begin{equation*}\n?\n\\end{equation*}\n" nil)
-	  ("ycwpf"
-	   "\\begin{proof}[\\tactic?]\n\n\\end{proof}\n" nil)
-	  ("mat("
-	   "\\begin{pmatrix}?\\end{pmatrix}" nil)
-	  ("mat"
-	   "\\begin{matrix}?\\end{matrix}" nil)))
   (setq cdlatex-command-alist
-	'(("Def" "Insert definition env"   ""
-	   cdlatex-environment("Def") t nil)
-	  ("Thm" "Insert theorem env" ""
-	   cdlatex-environment("Thm") t nil)
-	  ("eq*" "Insert equation* env" ""
-	   cdlatex-environment("equation*") t nil)
-	  ("pf" "Insert proof env" ""
-	   cdlatex-environment("ycwpf") t nil)
+	'(
 	  ("unj" "Insert u^n_j"
 	   "u^{n?}_{j}"
 	   cdlatex-position-cursor nil nil t)
@@ -158,17 +140,29 @@
 	  ("BB(" "Insert Bigg()"
 	   "\\Biggl(?\\Biggr)"
 	   cdlatex-position-cursor nil nil t)
-	  ("mat" "Insert matrix env"
-	   "\\begin{matrix}?\\end{matrix}"
-	   cdlatex-position-cursor nil nil t)
-	  ("mat(" "Insert matrix env"
-	   "\\begin{pmatrix}?\\end{pmatrix}"
-	   cdlatex-position-cursor nil nil t)
 	  ("i<" "langle rangle, inner product"
 	   "\\langle ?\\rangle"
 	   cdlatex-position-cursor nil nil t)
 	  ("lr<" "Insert left right angle"
 	   "\\left\\langle ?\\right\\rangle"
+	   cdlatex-position-cursor nil nil t)
+	  ("m>" "monomorphism"
+	   "\\hookrightarrow"
+	   cdlatex-position-cursor nil nil t)
+	  ("m<" "monomorphism"
+	   "\\hookleftarrow"
+	   cdlatex-position-cursor nil nil t)
+	  ("e>" "epimorphism"
+	   "\\twoheadrightarrow"
+	   cdlatex-position-cursor nil nil t)
+	  ("e<" "epimorphism"
+	   "\\twoheadleftarrow"
+	   cdlatex-position-cursor nil nil t)
+	  ("x>" "xrightarrow"
+	   "\\xrightarrow{?}"
+	   cdlatex-position-cursor nil nil t)
+	  ("x<" "xleftarrow"
+	   "\\xleftarrow{?}"
 	   cdlatex-position-cursor nil nil t)
 	  ))
   (setq cdlatex-math-symbol-alist

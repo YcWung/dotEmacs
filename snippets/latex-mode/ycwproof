@@ -3,5 +3,5 @@
 # key: pf
 # --
 \begin{proof}${1:[\tactic]}
-$0
+  $0
 \end{proof}

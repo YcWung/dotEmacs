@@ -42,6 +42,7 @@
 \makeatother
 \usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
 %\addbibresource{refs.bib}
+\usepackage[nameinlink]{cleveref}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Layouts %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \geometry{left=${5:1em}, right=${6:$5}, top=${7:1em}, bottom=${8:$7},
