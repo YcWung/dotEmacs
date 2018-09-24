@@ -75,13 +75,15 @@
 
 (defun ycw:auctex-win-init()
   (setenv "PATH"
-	  (concat "d:/Portable/RW/texlive-minimal/bin/win32" ";"
+	  ; (concat "d:/Portable/RW/texlive-minimal/bin/win32" ";"
+	  (concat "d:/usr/texlive/bin/win32" ";"
 		  (getenv "PATH")))
   (setq TeX-source-correlate-mode t
 	TeX-source-correlate-start-server t)
   (setq TeX-view-program-list 
 	'(("Sumatra PDF"
-	   ("\"d:/Portable/RW/SumatraPDFviewer/SumatraPDF.exe\" -reuse-instance" 
+	   ; ("\"d:/Portable/RW/SumatraPDFviewer/SumatraPDF.exe\" -reuse-instance"
+	   ("\"d:/usr/Sumatra/SumatraPDF.exe\" -reuse-instance" 
 	    (mode-io-correlate " -forward-search %b %n ") " %o"))))
   (setq TeX-view-program-selection  
 	'(((output-dvi style-pstricks) "dvips and start") (output-dvi "Yap") 
@@ -169,15 +171,20 @@
 	'((?< ("\\leftarrow" "\\xleftarrow{?}" "\\preccurlyeq"))
 	  (?> ("\\mapsto" "\\xrightarrow{?}" "\\succcurlyeq"))
 	  (?[ ("\\Leftarrow" "\\impliedby"))
-	    (?] ("\\Rightarrow" "\\implies"))
+	  (?] ("\\Rightarrow" "\\implies"))
 	  (?= ("\\Leftrightarrow" "\\iff"))
 	  (?U ("\\bigcup" "\\bigsqcup"))
 	  (?+ ("\\oplus" "^{\\dag}"))
 	  (?g ("\\gamma" "\\lieg"))
+	  (?b ("\\beta" "^{\\flat}"))
+	  (?t ("\\tau" "\\tensor[]{?}{}"))
+	  (?# ("^{\\sharp}"))
+	  (?^ ("\\uparrow" "\\leftidx{^{?}}\\!"))
+	  (?_ ("\\downarrow" "\\leftidx{_{?}}\\!"))
 	  (?* ("\\times" "\\otimes"))
 	  (?2 ("_{?}^{}" "^{?}_{}"))))
   (setq cdlatex-math-modify-alist
-	'(( ?s    "\\mathsf"            "\\textsf" t   nil nil )
+	'(( ?s    "\\mathscr"            "" t   nil nil )
 	  ( ?f    "\\mathfrak"            "\\textfrak" t   nil nil ))))
 ;; not work. use C-c C-n
 (defun ycw:refresh-labels()
