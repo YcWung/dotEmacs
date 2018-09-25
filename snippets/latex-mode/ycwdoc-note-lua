@@ -43,6 +43,8 @@
 \usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
 %\addbibresource{refs.bib}
 \usepackage[nameinlink]{cleveref}
+\usepackage{tocloft}
+\usepackage{setspace}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Layouts %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \geometry{left=${5:1em}, right=${6:$5}, top=${7:1em}, bottom=${8:$7},
@@ -56,6 +58,12 @@
 \fancyhead[R]{\thepage}
 \allowdisplaybreaks[2]
 % \setlist[description]{labelindent=\parindent}
+\renewcommand{\cftsecfont}{\small\bfseries}
+\renewcommand{\cftsubsecfont}{\footnotesize}
+\renewcommand{\cftsecpagefont}{\small\bfseries}
+\renewcommand{\cftsubsecpagefont}{\footnotesize}
+\setlength{\cftbeforesecskip}{0.8ex}
+\setlength{\cftbeforetoctitleskip}{0ex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Theorems %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \theoremstyle{plain}
@@ -325,11 +333,13 @@
 \DeclareMathOperator{\cconv}{\overline{conv}}
 \DeclareMathOperator{\Epi}{Epi}
 \newcommand{\opF}{\mathcal{F}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Specific %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Text %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 % \maketitle
-% \tableofcontents
+% \begin{spacing}{.8} \tableofcontents \end{spacing}
 % \input{pre.tex}
 $0
 

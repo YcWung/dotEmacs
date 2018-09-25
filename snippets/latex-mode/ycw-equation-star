@@ -2,6 +2,6 @@
 # name: ycw-equation-star
 # key: eq
 # --
-\begin{equation*}
+\begin{equation${1:*}}
   $0
-\end{equation*}
+\end{equation$1}

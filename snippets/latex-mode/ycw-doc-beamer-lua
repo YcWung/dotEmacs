@@ -49,7 +49,7 @@
 \allowdisplaybreaks[2]
 % \setlist[description]{labelindent=\parindent}
 \usetheme{${4:CambridgeUS}}
-\usecolortheme{{${5:seahorse}}
+\usecolortheme{${5:seahorse}}
 % \logo{\includegraphics[height=1.5cm]{logo.png}}
 
 %% put the toc at the beginning of each sec and highlights current sec
