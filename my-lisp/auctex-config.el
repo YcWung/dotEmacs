@@ -5,6 +5,10 @@
 (setq-default TeX-default-mode 'LaTeX-mode)
 (setq-default TeX-engine 'luatex)
 
+;; global option of latex
+(setq texpath-mac-2018 "/usr/local/texlive/2018/bin/x86_64-darwin")
+(setq texpath-mac-2017 "/usr/local/texlive/2017/bin/x86_64-darwin")
+
 ;; OS-dependent
 (cond ((eq system-type 'windows-nt)
        (eval-after-load "tex" '(ycw:auctex-win-init)))
@@ -58,6 +62,23 @@
   (add-to-list 'LaTeX-indent-environment-list '("align"))
   (add-to-list 'LaTeX-indent-environment-list '("array"))
 
+  (setq TeX-outline-extra
+	'(("Chapter" 1)
+	  ("Section" 2)
+	  ("Subsection" 3)
+	  ("Subsubsection" 4)
+	  ("Paragraph" 5)))
+  ;; add font locking to the headers
+  (font-lock-add-keywords
+   'latex-mode
+   '(("^\\\\\\(Chapter\\|Section\\|Subsection\\|Subsubsection\\|Paragraph\\)"
+      0 'font-lock-keyword-face t)
+     ("^\\\\Chapter{\\(.*\\)}"       1 'font-latex-sectioning-1-face t)
+     ("^\\\\Section{\\(.*\\)}"       1 'font-latex-sectioning-2-face t)
+     ("^\\\\Subsection{\\(.*\\)}"    1 'font-latex-sectioning-3-face t)
+     ("^\\\\Subsubsection{\\(.*\\)}" 1 'font-latex-sectioning-4-face t)
+     ("^\\\\Paragraph{\\(.*\\)}"     1 'font-latex-sectioning-5-face t)))
+  
   (add-hook
    'find-file-hook
    (lambda ()
@@ -96,17 +117,18 @@
   (setcar (cdr (assoc 'output-pdf TeX-view-program-selection)) "Okular"))
 
 (defun ycw:auctex-macos-init()
+  (setenv "LANG" "en_US.UTF-8")
   (setenv "PATH"
-	  (concat "/usr/local/texlive/2017/bin/x86_64-darwin" ":"
-		  (getenv "PATH")))
+	  (concat texpath-mac-2018 ":" (getenv "PATH")))
   (setq TeX-source-correlate-mode t)
   (setq TeX-source-correlate-method 'synctex)
   (setq TeX-source-correlate-start-server t)
   ;; (setq mac-right-option-modifier 'control)
   (setq TeX-view-program-selection '((output-pdf "PDF Viewer")))
   ;; -b -g %n %o %b
+  ;; %n %o %b
   (setq TeX-view-program-list
-	'(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline %n %o %b"))))
+	'(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b"))))
 
 (defun ycw:latex-goto-preamble-end()
   (interactive)

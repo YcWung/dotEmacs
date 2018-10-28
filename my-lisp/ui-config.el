@@ -17,6 +17,9 @@
 
 ;(column-number-mode)
 
+; load theme
+(load-theme 'dracula t)
+
 (defun ycw:win-fonts-setup()
   ;; Setting English Font
   (set-face-attribute

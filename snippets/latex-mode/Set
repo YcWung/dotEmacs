@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Set
+# key: Set
+# --
+\left\\{\left. ${1:x}\right|${2:f(x)=0} \right\\}
