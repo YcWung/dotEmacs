@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: inline-equation-displaystyle
+# key: eqi
+# --
+\\(\\displaystyle $0\\)

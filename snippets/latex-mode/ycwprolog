@@ -2,9 +2,12 @@
 # name: ycwprolog
 # key: prolog
 # --
-% Prolog of some component
+% Prolog of some
 \begin{flushright}
-\begin{minipage}{${1:0.6}\textwidth}
-  $0
+\begin{minipage}{${1:0.7}\textwidth}
+  \begin{tcolorbox}[breakable, sharp corners,
+        boxrule=0mm, leftrule=1mm, left=1mm, right=0mm, top=0mm, bottom=0mm]
+    $0
+  \end{tcolorbox}
 \end{minipage}
 \end{flushright}

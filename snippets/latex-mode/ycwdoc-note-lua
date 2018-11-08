@@ -29,6 +29,7 @@
 \usepackage{tikz}
 \usetikzlibrary{matrix, calc, arrows, cd, shapes.multipart}
 \usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
 \usepackage{xparse}
 \usepackage{ifthen}
 \usepackage{luacode}
@@ -108,25 +109,31 @@
 \DeclareMathOperator{\graph}{\mathrm{graph}}
 \newcommand\fnl{\mathcal{F}}
 % geometry
+\newcommand{\lie}{\mathbf{L}}
 \newcommand{\RP}{\mathbb{RP}}
 \newcommand{\mfdSt}{\mathrm{\mathbf{St}}}
 \newcommand{\vfX}{\mathsf{X}}
 \newcommand{\Lie}{\pounds}
 \newcommand{\covd}{\nabla}
+\newcommand{\mSt}{\mathrm{St}}
+\newcommand{\OSt}{\mathrm{OSt}}
+\newcommand{\Sph}{\mathbb{S}}
 % algebra
 \DeclareMathOperator{\id}{\mathrm{\mathbf{id}}}
-\DeclareMathOperator{\coker}{\mathrm{Coker}}
+\DeclareMathOperator{\coker}{\mathrm{coker}}
 \DeclareMathOperator{\End}{\mathrm{End}}
 \DeclareMathOperator{\Mor}{\mathrm{Mor}}
 \DeclareMathOperator{\Ab}{\mathrm{\mathbf{A\!b}}}
 \DeclareMathOperator{\Ext}{\mathrm{Ext}}
 \DeclareMathOperator{\Tor}{\mathrm{Tor}}
-\DeclareMathOperator{\coim}{\mathrm{Coim}}
-\DeclareMathOperator{\im}{\mathrm{Im}}
+\DeclareMathOperator{\coim}{\mathrm{coim}}
+\DeclareMathOperator{\im}{\mathrm{im}}
 \DeclareMathOperator{\Ccat}{\mathcal{C}}
 \DeclareMathOperator{\Set}{\mathcal{S}\mathrm{et}}
 \newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
 \newcommand{\inn}[2]{\langle #1,#2\rangle}
+\newcommand{\iprod}[1]{\left\langle #1\right\rangle}
+\newcommand{\iiprod}[1]{\langle\!\langle #1 \rangle\!\rangle}
 \newcommand{\lMod}[1]{#1\text{-}\mathrm{Mod}}
 \newcommand{\rMod}[1]{\mathrm{Mod}\text{-}#1}
 \newcommand{\biMod}[2]{{#1\text{-}\mathrm{Mod}\text{-}#2}}
@@ -143,6 +150,7 @@
 \DeclareMathOperator{\algHom}{Hom}
 \newcommand{\epito}{\twoheadrightarrow}
 % matrix
+\newcommand{\One}{\mathbf{1}}
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\diag}{diag}
 \NewDocumentCommand{\tridiagm}{O{4}>{\SplitArgument{2}{|}}m}{\ycwtridiagm{#1}#2}
@@ -248,6 +256,8 @@
 \newcommand\lieso{\mathfrak{so}}
 \newcommand\lieo{\mathfrak{o}}
 \newcommand\liesp{\mathfrak{sp}}
+\newcommand{\lieu}{\mathfrak{u}}
+\newcommand{\liesu}{\mathfrak{su}}
 \newcommand\lieg{\mathfrak{g}}
 \NewDocumentCommand{\liegln}{O{n} O{\CC}}{\liegl(#1,#2)}
 \NewDocumentCommand{\liesln}{O{n} O{\CC}}{\liesl(#1,#2)}
@@ -302,6 +312,9 @@
 \DeclareMathOperator{\LieSE}{SE}
 \DeclareMathOperator{\LieSO}{SO}
 \DeclareMathOperator{\LieO}{O}
+\newcommand{\LieU}{\mathrm{U}}
+\newcommand{\LieSU}{\mathrm{SU}}
+\newcommand{\LieSpin}{\mathrm{Spin}}
 % probability
 \DeclareMathOperator{\dstN}{\mathcal{N}}
 \DeclareMathOperator{\dstLgv}{Langevin}
@@ -333,6 +346,26 @@
 \DeclareMathOperator{\cconv}{\overline{conv}}
 \DeclareMathOperator{\Epi}{Epi}
 \newcommand{\opF}{\mathcal{F}}
+\NewDocumentEnvironment{prolog}{O{0.7}}{%
+  \begin{flushright}
+      \begin{tcolorbox}[breakable, sharp corners, width=#1\textwidth,
+        boxrule=0mm, leftrule=1mm, left=1mm, right=0mm, top=0mm, bottom=0mm]
+      }{%
+      \end{tcolorbox}
+  \end{flushright}
+}
+\NewDocumentCommand{\Chapter}{m o}{%
+  \chapter*{#1}
+  \addcontentsline{toc}{chapter}{\IfValueTF{#2}{#2}{#1}}%
+}
+\NewDocumentCommand{\Section}{m o}{%
+  \section*{\rule{\textwidth}{1pt} #1}
+  \addcontentsline{toc}{section}{\IfValueTF{#2}{#2}{#1}}%
+}
+\NewDocumentCommand{\Subsection}{m o}{%
+  \subsection*{\rule{\textwidth}{.5pt} #1}
+  \addcontentsline{toc}{subsection}{\IfValueTF{#2}{#2}{#1}}%
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Specific %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 

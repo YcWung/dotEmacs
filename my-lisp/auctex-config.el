@@ -204,7 +204,9 @@
 	  (?^ ("\\uparrow" "\\leftidx{^{?}}\\!"))
 	  (?_ ("\\downarrow" "\\leftidx{_{?}}\\!"))
 	  (?* ("\\times" "\\otimes"))
-	  (?2 ("_{?}^{}" "^{?}_{}"))))
+	  (?2 ("_{?}^{}" "^{?}_{}"))
+	  (?/ ("\\parallel"))
+	  ))
   (setq cdlatex-math-modify-alist
 	'(( ?s    "\\mathscr"            "" t   nil nil )
 	  ( ?f    "\\mathfrak"            "\\textfrak" t   nil nil ))))

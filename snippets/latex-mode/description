@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: description
+# key: desc
+# --
+\\begin{description}[labelindent=2ex]
+  \item[$1] $0
+\\end{description}
