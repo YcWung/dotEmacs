@@ -2,6 +2,7 @@
 !/my-lisp/
 !/snippets/
 !/init.el
+!/init.example.el
 !/.gitignore
 !/Readme.md
 \#*\#
