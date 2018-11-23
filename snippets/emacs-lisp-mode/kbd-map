@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: kbd-map
+# key: kmap
+# --
+(define-key ${1:global-map} (kbd "${2:C-c}") '$0)

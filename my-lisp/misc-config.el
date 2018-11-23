@@ -32,6 +32,12 @@
   (company-mode)
   )
 
+;; term-mode
+(add-hook 'term-mode-hook 'ycw:setup-term)
+(defun ycw:setup-term ()
+  (require 'term+)
+  (define-key term-mode-map (kbd "C-y") 'term+yank))
+
 ;; Auto-indent yanked code
 (dolist (command '(yank yank-pop))
   (eval `(defadvice ,command (after indent-region activate)
@@ -47,5 +53,28 @@
 		(let ((mark-even-if-inactive transient-mark-mode))
 		  (indent-region (region-beginning) (region-end) nil))))))
 
+;; auto folding / unfolding
+(global-origami-mode)
+(define-key origami-mode-map (kbd "C-c - -") 'origami-toggle-node)
+(define-key origami-mode-map (kbd "C-c - a") 'origami-toggle-all-nodes)
+(define-key origami-mode-map (kbd "C-c - o") 'origami-open-node-recursively)
+(define-key origami-mode-map (kbd "C-c - r") 'origami-recursively-toggle-node)
+(define-key origami-mode-map (kbd "C-c - .") 'origami-show-only-node)
+
+;; edit configuration files
+(define-key global-map (kbd "C-c e c") 'ycw:find-conf-file)
+(defun ycw:find-conf-file (filepath)
+  (interactive
+   (list
+    (read-file-name "find configuration file: " "~/.emacs.d/my-lisp/" nil nil ".el"
+		    (lambda (nm)
+		      (if (string-match "~$" nm) nil t)))))
+  (find-file filepath))
+
+;; kill buffer and delete window
+(define-key global-map (kbd "C-c k") 'kill-buffer-and-window)
+
 ;; key bindings
 (define-key global-map (kbd "M-<left>") 'pop-global-mark)
+(when (eq system-type 'darwin)
+  (define-key global-map (kbd "C-c SPC") 'execute-extended-command))

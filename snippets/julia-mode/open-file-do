@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: open-file-do
+# key: opendo
+# --
+open(${1:fpath}) do ${2:file}
+  $0
+end

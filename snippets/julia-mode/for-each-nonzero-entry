@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: for-each-nonzero-entry
+# key: fornz
+# --
+for (i,j,${2:$1_ij}) in findnz(${1:A})
+  $0
+end

@@ -23,9 +23,7 @@
 (defun ycw:latex-init ()
   ;; cdlatex
   (ycw:cdlatex-config)
-  (turn-on-cdlatex)
-  (define-key cdlatex-mode-map  "\t"        nil)
-  (define-key cdlatex-mode-map  (kbd "C-<tab>") 'cdlatex-tab)
+  (setq cdlatex-paired-parens "([{$")
   ;; (define-key global-map (kbd "C-<tab>") 'indent-for-tab-command)
   ;; company and yasnippet
   (require 'company-auctex)
@@ -44,9 +42,9 @@
   (turn-on-reftex)
   ;; (LaTeX-math-mode)
   (add-to-list 'LaTeX-clean-intermediate-suffixes "\\..+\\.gnuplot")
-  (define-key global-map
-    (kbd "C-c p e") 'ycw:latex-goto-preamble-end)
-  (define-key global-map
+  (local-set-key
+    (kbd "C-c e p") 'ycw:latex-goto-preamble-end)
+  (local-set-key
     (kbd "C-c e c") 'ycw:edit-auctex-config)
   (LaTeX-add-environments
    '("Thm" LaTeX-env-label)
@@ -209,7 +207,12 @@
 	  ))
   (setq cdlatex-math-modify-alist
 	'(( ?s    "\\mathscr"            "" t   nil nil )
-	  ( ?f    "\\mathfrak"            "\\textfrak" t   nil nil ))))
+	  ( ?B    "\\mathbb"             "" t   nil nil )
+	  ( ?f    "\\mathfrak"           "\\textfrak" t   nil nil )))
+  (turn-on-cdlatex)
+  (define-key cdlatex-mode-map  "\t"        nil)
+  ;; (define-key cdlatex-mode-map  "$"        nil)
+  (define-key cdlatex-mode-map  (kbd "C-<tab>") 'cdlatex-tab))
 ;; not work. use C-c C-n
 (defun ycw:refresh-labels()
   (interactive)

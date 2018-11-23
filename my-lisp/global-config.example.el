@@ -1,6 +1,9 @@
 ;; platform-specific variables
 (when (eq system-type 'darwin)
-  (setq ycw:julia-dir "")
+  (setq ycw:julia-dir
+	"/Applications/Julia-1.0.app/Contents/Resources/julia/bin")
+  (setq ycw:frame-width 90)
+  (setq ycw:frame-height 50)
   )
 (when (eq system-type 'windows-nt)
   (setq ycw:git-dir "d:/usr/Git/cmd")
@@ -19,3 +22,6 @@
 ;; common packages
 (require 'company)
 (make-variable-buffer-local 'company-backends)
+(require 'cdlatex)
+(make-variable-buffer-local 'cdlatex-paired-parens)
+(make-variable-buffer-local 'cdlatex-simplify-sub-super-scripts)

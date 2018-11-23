@@ -11,9 +11,9 @@
 
 (load "ycw-utils")
 (load "global-config")
+(load "ui-config")
 (load "auctex-config")
 (load "cxx-config")
 (load "python-config")
 (load "julia-config")
-(load "ui-config")
 (load "misc-config")

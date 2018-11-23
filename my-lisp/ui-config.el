@@ -15,7 +15,14 @@
 ;; (global-hl-line-mode)
 ;(setq ns-pop-up-frames nil)
 
-;(column-number-mode)
+(column-number-mode)
+;; show line numbering column
+(global-linum-mode t)
+;; frame size
+(when (boundp 'ycw:frame-width)
+  (add-to-list 'default-frame-alist `(width . ,ycw:frame-width)))
+(when (boundp 'ycw:frame-height)
+  (add-to-list 'default-frame-alist `(height . ,ycw:frame-height)))
 
 ; load theme
 (load-theme 'dracula t)

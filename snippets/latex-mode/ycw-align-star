@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: ycw-align-star
-# key: eqa
+# key: al*
 # --
 \\begin{align*}
   $0

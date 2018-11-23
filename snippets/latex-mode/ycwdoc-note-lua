@@ -96,6 +96,7 @@
 \newtheorem*{Rec*}{\framebox{Recall}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Self-defined %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ycwesc}[1]{\luadirect{tex.print(\luastringN{#1})}}
 % general sets, spaces,
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\CC}{\mathbb{C}}
@@ -225,31 +226,31 @@
   {\color{Orange}#2}}
 \NewDocumentCommand{\obs}{O{}m}{{\color{Green}\tt OBSERVATION\$_\text{#1}
     \color{cyan}\sphericalangle\$}{\color{cyan}:}
-  {\color{Green}#2}}
+  {\color{Green}\ycwesc{#2}}}
 \NewDocumentCommand{\want}{O{}m}{{\color{Orange}\tt WANT\$_\text{#1}
     \color{cyan}:\$}
-  {\color{Orange}#2}}
+  {\color{Orange}\ycwesc{#2}}}
 \NewDocumentCommand{\ques}{O{}m}{{\color{Orange}\tt Q\$_\text{#1}
     \color{cyan}?:\$}
-  {\color{Orange}#2}}
+  {\color{Orange}\ycwesc{#2}}}
 \NewDocumentCommand{\idea}{O{}m}{{\color{Green}\tt IDEA\$_\text{#1}
     \color{cyan}^\circledast\$} {\color{cyan}:}
-  {\color{Green}#2}}
+  {\color{Green}\ycwesc{#2}}}
 \NewDocumentCommand{\csdr}{O{}m}{{\color{Green}\tt CONSIDER\$_\text{#1}
     \color{cyan}^\circledast\$} {\color{cyan}:}
-  {\color{Green}#2}}
+  {\color{Green}\ycwesc{#2}}}
 \NewDocumentCommand{\cstr}{O{}m}{{\color{Green}\tt CONSTRUCTION\$_\text{#1}
     \color{cyan}^\bullet\$} {\color{cyan}:}
-  {\color{Green}#2}}
+  {\color{Green}\ycwesc{#2}}}
 \NewDocumentCommand{\app}{O{}m}{{\color{Green}\tt APPLY\$_\text{#1}
     \color{cyan}^\lambda\$} {\color{cyan}:}
-  {\color{Green}#2}}
+  {\color{Green}\ycwesc{#2}}}
 \NewDocumentCommand{\asst}{O{}m}{{\color{Orange}\tt ASSERT\$_\text{#1}
     \color{cyan}:\$}
-  {\color{Orange}#2}}
+  {\color{Orange}\ycwesc{#2}}}
 \NewDocumentCommand{\assm}{O{}m}{{\color{Green}\tt ASSUME\$_\text{#1}$}
   {\color{cyan}:}
-  {\color{Green}#2}}
+  {\color{Green}\ycwesc{#2}}}
 % Lie alg
 \newcommand\liegl{\mathfrak{gl}}
 \newcommand\liesl{\mathfrak{sl}}

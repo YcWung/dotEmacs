@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: ycw-gather-star
-# key: eqg
+# key: ga*
 # --
 \\begin{gather*}
   $0
