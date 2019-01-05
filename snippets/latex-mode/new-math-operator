@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: new-math-operator
+# key: op
+# --
+\\newcommand{\\${1:opname}}{\\operatorname{$0}}

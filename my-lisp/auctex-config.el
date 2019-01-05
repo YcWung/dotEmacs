@@ -77,19 +77,19 @@
      ("^\\\\Subsubsection{\\(.*\\)}" 1 'font-latex-sectioning-4-face t)
      ("^\\\\Paragraph{\\(.*\\)}"     1 'font-latex-sectioning-5-face t)))
   
-  (add-hook
-   'find-file-hook
-   (lambda ()
-     (when (eq major-mode 'latex-mode)
-       ;; Check if we are looking at a new or shared file.
-       (when (or (not (file-exists-p (buffer-file-name)))
-		 (eq TeX-master 'shared))
-	 (add-file-local-variable
-	  'TeX-engine
-	  (intern (completing-read "Add TeX-engine with value: "
-				   (mapcar 'car (TeX-engine-alist))
-				   nil nil nil nil "luatex"))))
-       (TeX-update-style t))))
+  ;; (add-hook
+  ;;  'find-file-hook
+  ;;  (lambda ()
+  ;;    (when (eq major-mode 'latex-mode)
+  ;;      ;; Check if we are looking at a new or shared file.
+  ;;      (when (or (not (file-exists-p (buffer-file-name)))
+  ;; 		 (eq TeX-master 'shared))
+  ;; 	 (add-file-local-variable
+  ;; 	  'TeX-engine
+  ;; 	  (intern (completing-read "Add TeX-engine with value: "
+  ;; 				   (mapcar 'car (TeX-engine-alist))
+  ;; 				   nil nil nil nil "luatex"))))
+  ;;      (TeX-update-style t))))
   )
 
 (defun ycw:auctex-win-init()
@@ -188,8 +188,8 @@
 	   cdlatex-position-cursor nil nil t)
 	  ))
   (setq cdlatex-math-symbol-alist
-	'((?< ("\\leftarrow" "\\xleftarrow{?}" "\\preccurlyeq"))
-	  (?> ("\\mapsto" "\\xrightarrow{?}" "\\succcurlyeq"))
+	'((?< ("\\leftarrow" "\\longleftarrow" "\\preccurlyeq"))
+	  (?> ("\\to" "\\longrightarrow" "\\succcurlyeq"))
 	  (?[ ("\\Leftarrow" "\\impliedby"))
 	  (?] ("\\Rightarrow" "\\implies"))
 	  (?= ("\\Leftrightarrow" "\\iff"))

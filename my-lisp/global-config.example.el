@@ -3,7 +3,8 @@
   (setq ycw:julia-dir
 	"/Applications/Julia-1.0.app/Contents/Resources/julia/bin")
   (setq ycw:frame-width 90)
-  (setq ycw:frame-height 50)
+  (setq ycw:frame-height 46)
+  (setq ycw:python-virtualenv-root "~/venv/")
   )
 (when (eq system-type 'windows-nt)
   (setq ycw:git-dir "d:/usr/Git/cmd")
@@ -25,3 +26,7 @@
 (require 'cdlatex)
 (make-variable-buffer-local 'cdlatex-paired-parens)
 (make-variable-buffer-local 'cdlatex-simplify-sub-super-scripts)
+
+;; coding system
+(prefer-coding-system 'gb18030)
+(prefer-coding-system 'utf-8)

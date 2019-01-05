@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: equations-in-brace
+# key: eqs
+# --
+\\begin{equation*}
+  \\left\\{\\begin{aligned}{}
+    &$0
+  \\end{aligned}\\right.
+\\end{equation*}

@@ -17,3 +17,18 @@
 (load "python-config")
 (load "julia-config")
 (load "misc-config")
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (py-autopep8 company-anaconda matlab-mode company-lsp lsp-julia quelpa lsp-mode anaconda-mode "anaconda-mode" persistent-overlays term+ origami julia-repl julia-mode google-c-style dracula-theme company-auctex cdlatex)))
+ '(safe-local-variable-values (quote ((TeX-source-correlate-method-active . synctex)))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

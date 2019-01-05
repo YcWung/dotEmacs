@@ -13,8 +13,7 @@
 ;; Current line highlighting
 ;; (require 'hl-line)
 ;; (global-hl-line-mode)
-;(setq ns-pop-up-frames nil)
-
+;; (setq ns-pop-up-frames nil)
 (column-number-mode)
 ;; show line numbering column
 (global-linum-mode t)

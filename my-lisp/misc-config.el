@@ -35,6 +35,8 @@
 ;; term-mode
 (add-hook 'term-mode-hook 'ycw:setup-term)
 (defun ycw:setup-term ()
+  (read-only-mode -1)
+  (define-key term-mode-map (kbd "M-w") 'kill-ring-save)
   (require 'term+)
   (define-key term-mode-map (kbd "C-y") 'term+yank))
 

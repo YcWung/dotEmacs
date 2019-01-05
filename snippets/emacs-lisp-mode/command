@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: command
+# key: cmd
+# --
+(defun ${1:foo} ()
+  "${2:todo}"
+  (interactive)
+  $0
+  )

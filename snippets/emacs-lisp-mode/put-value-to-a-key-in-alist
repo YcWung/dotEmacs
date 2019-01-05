@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: put-value-to-a-key-in-alist
+# key: puta
+# --
+(setf (cdr (assoc ${2::name} ${1:alist})) ${3:"value"})

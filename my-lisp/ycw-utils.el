@@ -23,13 +23,14 @@
   (require 'yasnippet)
   (yas-reload-all)
   (yas-minor-mode-on)
-  (setq company-backends
-  	(let ((first (car company-backends)))
-  	  (if (listp first)
-  	      (push (append first '(company-yasnippet))
-  		    (cdr company-backends))
-  	    (push 'company-yasnippet company-backends))))
-  (apply 'ycw:append-foreward-to-company-initial-backend backends)
+  ;; (setq company-backends
+  ;; 	(let ((first (car company-backends)))
+  ;; 	  (if (listp first)
+  ;; 	      (push (append first '(company-yasnippet))
+  ;; 		    (cdr company-backends))
+  ;; 	    (push 'company-yasnippet company-backends))))
+  ;; (apply 'ycw:append-foreward-to-company-initial-backend backends)
+  (push backends company-backends)
   (company-mode))
 
 (defun ycw:add-to-sys-path (&rest dirs)

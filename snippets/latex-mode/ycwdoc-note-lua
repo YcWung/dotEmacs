@@ -46,6 +46,7 @@
 \usepackage[nameinlink]{cleveref}
 \usepackage{tocloft}
 \usepackage{setspace}
+\usepackage{tensor}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Layouts %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \geometry{left=${5:1em}, right=${6:$5}, top=${7:1em}, bottom=${8:$7},

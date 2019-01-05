@@ -25,6 +25,16 @@
   (require 'rx)
   (ycw:company-yas-init 'company-anaconda)
   ;; (setq company-minimum-prefix-length 1)
+  ;; (define-key anaconda-mode-map (kbd "C-c e v") 'pythonic-activate)
+  (define-key anaconda-mode-map (kbd "C-c e v")
+    (lambda (dirpath)
+      (interactive
+       (list
+	(read-directory-name "find virtualenv directory: "
+			     (if (boundp 'ycw:python-virtualenv-root)
+				 ycw:python-virtualenv-root "~/")
+			     nil nil "")))
+      (pythonic-activate dirpath)))
   )
 
 (defun ycw:setup-python-basic ()

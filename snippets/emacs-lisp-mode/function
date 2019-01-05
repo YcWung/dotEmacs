@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: function
+# key: fn
+# --
+(defun ${1:foo} ()
+  "${2:todo}"
+  $0
+  )

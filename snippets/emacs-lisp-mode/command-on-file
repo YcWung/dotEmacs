@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: command-on-file
+# key: cmdf
+# --
+(defun ${1:foo} (filepath)
+  (interactive
+   (list
+    (read-file-name "find$2 file: " "${3:~/.emacs.d/}" nil nil "${4:init}"
+		    (lambda (nm)
+		      (if (string-match "~$" nm) nil t))
+    )))
+  $0)

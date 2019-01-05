@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: doc-string
+# key: doc
+# --
+""" $0 """

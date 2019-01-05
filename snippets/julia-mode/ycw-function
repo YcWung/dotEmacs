@@ -2,5 +2,7 @@
 # name: ycw-function
 # key: fn
 # --
-function $0
+function ${1:foo} (${2:args...}${3:; kargs...})
+  """ ${4:todo} """
+  $0
 end

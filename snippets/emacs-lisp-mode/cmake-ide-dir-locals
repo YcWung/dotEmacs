@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: cmakeidedirlocals
-# key: cmakeidedirlocals
+# name: cmake-ide-dir-locals
+# key: cmkide
 # --
 ((nil . ((cmake-ide-build-pool-use-persistent-naming . t)
 	 (eval . (set (make-local-variable 'my-project-path)

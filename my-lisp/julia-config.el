@@ -35,6 +35,7 @@
   (setq cdlatex-paired-parens "([{")
   (setq cdlatex-simplify-sub-super-scripts nil)
   (use-local-map (copy-keymap cdlatex-mode-map))
+  (local-set-key  "\t"       'latexsub-or-indent)
   (local-set-key  "$"         nil)
   (local-set-key  "^"         nil)
   (local-set-key  "_"         nil)

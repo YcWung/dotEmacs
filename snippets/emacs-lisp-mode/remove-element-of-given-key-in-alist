@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: remove-element-of-given-key-in-alist
+# key: rma
+# --
+(remove* ${1::foo} ${2:alist} :key 'car)

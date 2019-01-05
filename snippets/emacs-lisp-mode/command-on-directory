@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: command-on-directory
+# key: cmdd
+# --
+(defun ${1:foo} (dirpath)
+  (interactive
+   (list
+    (read-directory-name "find$2 directory: " "${3:~/}" nil nil "${4:init/}")))
+  $0)

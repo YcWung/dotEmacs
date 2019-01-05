@@ -3,7 +3,7 @@
 # key: eqa
 # --
 \begin{equation*}
-  \begin{aligned}
+  \begin{aligned}{}
     $0
   \end{aligned}
 \end{equation*}
