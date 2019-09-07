@@ -5,6 +5,7 @@
 ;;     (require 'julia-mode)
 ;;     (add-hook 'julia-mode-hook 'ycw:julia-mode-setup)))
 (add-hook 'julia-mode-hook 'ycw:julia-mode-setup)
+;; (add-hook 'julia-mode-hook #'lsp-mode)
 (defun ycw:julia-mode-setup()
   (setq julia-indent-offset 2)
   (cond ((eq system-type 'windows-nt)
@@ -26,7 +27,7 @@
   ;; 	"D:\\Portable\\Calculate\\Julia-0.6.0\\bin\\julia.exe")
   (ycw:company-yas-init)
   (ycw:append-backward-to-company-initial-backend
-   'company-keywords 'company-dabbrev 'company-files)
+   'company-keywords 'company-dabbrev 'company-files 'company-lsp)
   
   (ycw:cdlatex-config)
   (cdlatex-mode -1)
@@ -51,6 +52,10 @@
   (local-set-key
    (cdlatex-get-kbd-vector cdlatex-math-symbol-prefix)
    'ycw:julia-symbol)
+  (require 'lsp-julia)
+  (when (boundp 'ycw:julia-dir)
+    (setq lsp-julia-command (concat ycw:julia-dir "/julia")))
+  (lsp)
   )
 
 (defun ycw:julia-symbol ()
