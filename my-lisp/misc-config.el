@@ -80,3 +80,7 @@
 (define-key global-map (kbd "M-<left>") 'pop-global-mark)
 (when (eq system-type 'darwin)
   (define-key global-map (kbd "C-c SPC") 'execute-extended-command))
+(define-key global-map (kbd "C-c C-r") (lambda () (interactive) (revert-buffer t t)))
+
+;; backup
+(setq make-backup-files nil)
