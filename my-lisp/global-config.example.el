@@ -23,6 +23,9 @@
 ;; common packages
 (require 'company)
 (make-variable-buffer-local 'company-backends)
+
+(add-to-list 'load-path
+	     (expand-file-name "cdlatex" (file-name-directory load-file-name)))
 (require 'cdlatex)
 (make-variable-buffer-local 'cdlatex-paired-parens)
 (make-variable-buffer-local 'cdlatex-simplify-sub-super-scripts)
