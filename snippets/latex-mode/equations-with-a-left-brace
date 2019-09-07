@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: equations-with-a-left-brace
+# key: eqb
+# --
+\\begin{equation*}
+  \\left\\{
+    \\begin{aligned}
+      $0
+    \\end{aligned}
+  \\right.
+\\end{equation*}

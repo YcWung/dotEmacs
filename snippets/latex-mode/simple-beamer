@@ -1,0 +1,97 @@
+# -*- mode: snippet -*-
+# name: simple-beamer
+# key: Tsb
+# --
+\documentclass[dvipsnames,aspectratio=169]{beamer}
+\usetheme{CambridgeUS}
+\usecolortheme{seahorse}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Packages %%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{mathabx}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\makeatletter
+\let\@@magyar@captionfix\relax
+\makeatother
+\usepackage{hyperref}
+\usepackage{blkarray}
+\usepackage{listings}
+\usepackage{ulem}
+\usepackage{tikz}
+\usetikzlibrary{matrix, calc, arrows, cd}
+\usepackage{tcolorbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Title %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{title}
+\subtitle{subtitle}
+\author{author}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Layouts %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hypersetup{bookmarks=true, bookmarksnumbered=true,
+  colorlinks=true, linkcolor=blue}
+\allowdisplaybreaks[2]
+% \logo{\includegraphics[height=1.5cm]{logo.png}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Theorems %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\theoremstyle{plain}
+\newtheorem{Thm}{Theorem}[section]
+\newtheorem{Lem}[Thm]{Lemma}
+\newtheorem{Cor}[Thm]{Corollary}
+\newtheorem{Prop}[Thm]{Proposition}
+\newtheorem*{Thm*}{Theorem}
+\newtheorem*{Lem*}{Lemma}
+\newtheorem*{Cor*}{Corollary}
+\newtheorem*{Prop*}{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{Def}[Thm]{Definition}
+\newtheorem{Ex}{Execise}
+\newtheorem*{Def*}{Definition}
+\newtheorem*{Ex*}{Execise}
+
+\theoremstyle{remark}
+\newtheorem{Exm}[Thm]{Example}
+\newtheorem{Rmk}[Thm]{\underline{Remark}}
+\newtheorem*{Exm*}{Example}
+\newtheorem*{Rmk*}{\underline{Remark}}
+
+%%%%%%%%%%%%%%%%%%%%%%%% Self-defined %%%%%%%%%%%%%%%%%%%%%%%%%
+\def\QQ{\mathbb{Q}}
+\def\CC{\mathbb{C}}
+\def\RR{\mathbb{R}}
+\def\ZZ{\mathbb{Z}}
+
+%%%%%%%%%%%%%%%%%%%%%%% Text %%%%%%%%%%%%%%%%%%%%%%%%%%
+% frametitle, pause, item<1->, item<2>, uncover<1>
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}\frametitle{Table of Contents}\tableofcontents\end{frame}
+
+\section{section 1}
+
+\begin{frame}{\secname}
+  
+\end{frame}
+
+\section{section 2}
+
+\begin{frame}{\secname}
+  
+\end{frame}
+
+\end{document}
+%%% Local Variables:
+%%% mode: default
+%%% TeX-master: t
+%%% End:

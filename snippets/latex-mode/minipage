@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: minipage
+# key: Bm
+# --
+\begin{minipage}{${1:0.49\linewidth}}
+  $0
+\end{minipage}

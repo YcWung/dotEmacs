@@ -120,6 +120,7 @@
 \newcommand{\mSt}{\mathrm{St}}
 \newcommand{\OSt}{\mathrm{OSt}}
 \newcommand{\Sph}{\mathbb{S}}
+\newcommand{\sslash}{\mathbin{/\mkern-6mu/}}
 % algebra
 \DeclareMathOperator{\id}{\mathrm{\mathbf{id}}}
 \DeclareMathOperator{\coker}{\mathrm{coker}}

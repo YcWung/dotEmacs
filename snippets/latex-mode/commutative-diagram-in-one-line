@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: commutative-diagram-in-one-line
+# key: cd1
+# --
+\\begin{tikzcd} $0 \\end{tikzcd}

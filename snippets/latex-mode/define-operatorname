@@ -1,0 +1,4 @@
+# key: dop
+# name: define-operatorname
+# --
+\\def\\${1:name}{\\operatorname{$1$0}}

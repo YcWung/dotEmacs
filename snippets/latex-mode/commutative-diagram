@@ -2,8 +2,6 @@
 # name: commutative-diagram
 # key: cd
 # --
-\\begin{equation*}
-  \\begin{tikzcd}
-    $0
-  \\end{tikzcd}
-\\end{equation*}
+\\begin{tikzcd}
+  $0
+\\end{tikzcd}
