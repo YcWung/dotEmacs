@@ -55,3 +55,7 @@
        (ycw:win-fonts-setup))
       ((eq system-type 'gnu/linux)
        (ycw:linux-fonts-setup)))
+
+;; powerline
+(require 'powerline)
+(powerline-default-theme)

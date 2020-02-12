@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: dir-local-clangd
+# key: clangd
+# --
+((c++-mode . ((eval . (setq lsp-clients-clangd-args
+			    `(,(concat "--compile-commands-dir="
+					  (file-name-directory
+					   (let ((d (dir-locals-find-file "./")))
+					     (if (stringp d) d (car d))))
+					  "/build/")))))))

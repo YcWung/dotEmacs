@@ -33,3 +33,6 @@
 ;; coding system
 (prefer-coding-system 'gb18030)
 (prefer-coding-system 'utf-8)
+
+;; clangd
+(setq lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd")
