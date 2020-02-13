@@ -8,9 +8,9 @@
   (hack-dir-local-variables)
   (cmake-ide-setup))
 
-(add-hook 'c-mode-common-hook 'ycw:cxx-init-with-clangd)
+;; (add-hook 'c-mode-common-hook 'ycw:cxx-init-with-clangd)
 ;; (add-hook 'c-mode-common-hook 'ycw:cmake-ide-init)
-;; (add-hook 'c-mode-common-hook 'ycw:basic-c-init)
+(add-hook 'c-mode-common-hook 'ycw:basic-c-init)
 (defun ycw:basic-c-init ()
   (ycw:company-yas-init)
   (require 'google-c-style)
@@ -22,6 +22,7 @@
   (ycw:basic-c-init)
   (ycw:append-backward-to-company-initial-backend
    'company-keywords 'company-dabbrev 'company-files 'company-lsp)
+  (setq lsp-enable-file-watchers t)
   (lsp-deferred)
   )
   
@@ -44,3 +45,24 @@
   (require 'company)
   (push 'company-rtags company-backends)
   )
+
+(defun lsp-clangd (compile-commands-dir)
+  (interactive
+   (list
+    (read-directory-name "compile commands directory: " default-directory nil nil "build")))
+  (let ((args (concat "--compile-commands-dir="
+		      (expand-file-name compile-commands-dir)
+		      "")))
+    (require 'lsp-clients)
+    (setq lsp-clients-clangd-args (list args))
+    (message "server launch command: %s" (lsp-clients--clangd-command))
+    (lsp)
+    (ycw:append-backward-to-company-initial-backend
+     'company-keywords 'company-dabbrev 'company-files 'company-lsp)
+    (add-hook 'c-mode-common-hook (lambda ()
+				    (lsp-deferred)
+				    (ycw:append-backward-to-company-initial-backend
+				     'company-keywords
+				     'company-dabbrev
+				     'company-files
+				     'company-lsp)))))
