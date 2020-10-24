@@ -60,9 +60,8 @@
     (ycw:append-backward-to-company-initial-backend
      'company-keywords 'company-dabbrev 'company-files 'company-lsp)
     (add-hook 'c-mode-common-hook (lambda ()
-				    (lsp-deferred)
 				    (ycw:append-backward-to-company-initial-backend
 				     'company-keywords
 				     'company-dabbrev
-				     'company-files
-				     'company-lsp)))))
+				     'company-files)
+				    (lsp-deferred)))))
