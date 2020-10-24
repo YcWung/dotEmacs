@@ -53,7 +53,8 @@
   (let ((args (concat "--compile-commands-dir="
 		      (expand-file-name compile-commands-dir)
 		      "")))
-    (require 'lsp-clients)
+    ;; (require 'lsp-clients)
+    (require 'lsp-clangd)
     (setq lsp-clients-clangd-args (list args))
     (message "server launch command: %s" (lsp-clients--clangd-command))
     (lsp)
