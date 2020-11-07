@@ -1,3 +1,9 @@
+;; (message "loading file: %s" load-file-name)
+
+;; environment variables
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+
 ;; platform-specific variables
 (when (eq system-type 'darwin)
   (setq ycw:julia-dir
@@ -14,6 +20,7 @@
 ;; apply some global settings
 (when (eq system-type 'darwin)
   (setq mac-right-option-modifier 'control)
+  (setq mac-right-command-modifier 'meta)
   (global-set-key [kp-delete] 'delete-char)
   )
 (when (eq system-type 'windows-nt)

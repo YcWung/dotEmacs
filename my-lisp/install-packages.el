@@ -21,4 +21,5 @@
 (package-install 'cmake-mode)
 (package-install 'cuda-mode)
 (package-install 'powerline)
+(package-install 'exec-path-from-shell)
 (quelpa '(lsp-julia :fetcher github :repo "non-Jedi/lsp-julia"))
